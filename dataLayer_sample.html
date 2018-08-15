@@ -1,0 +1,172 @@
+<script>
+(function(){
+  //CVページ_商品ID取得用
+  var itemIdLIst = (function(){
+    var itemIdList = [];
+    try{
+      var price = 0;
+      if ('data' in window) {
+        if (data instanceof Object) {
+          var tmpItem = data["product-info"];
+          if (tmpItem !== undefined) {
+            var itemSplitList = tmpItem.split(',');
+            for(var i = 0; i < itemSplitList.length; i++){
+              itemIdList.push(itemSplitList[i].split(':')[0].slice( 0, -4 ));
+            }
+          }
+        }
+      }
+    } catch(e) {
+    }
+    return itemIdList;
+  })()
+
+  //CVページ_商品ID取得用_KANADE
+  var itemIds_kanade = (function(){
+    var itemIds = '';
+    try{
+      var itemIdList = [];
+      var price = 0;
+      if ('data' in window) {
+        if (data instanceof Object) {
+          var tmpItem = data["product-info"];
+          if (tmpItem !== undefined) {
+            var itemSplitList = tmpItem.split(',');
+            for(var i = 0; i < itemSplitList.length; i++){
+              itemIdList.push(itemSplitList[i].split(':')[0].slice( 0, -4 ));
+            }
+          }
+        }
+      }
+      if (itemIdList.length !== 0) {
+        itemIds = itemIdList.join('/');
+      }
+    } catch(e) {
+    }
+    return itemIds;
+  })()
+
+  //CVページ_商品情報取得
+  var itemList_criteo = (function(){
+    itemList = [];
+    try{
+      var price = 0;
+      if ('data' in window) {
+        if (data instanceof Object) {
+          var tmpItem = data["product-info"];
+          if (tmpItem !== undefined) {
+            var itemSplitList = tmpItem.split(',');
+            var itemIdList = [];
+            var priceList = [];
+            var quantityList = [];
+            for(var i = 0; i < itemSplitList.length; i++){
+              itemIdList.push(itemSplitList[i].split(':')[0]);
+              priceList.push(itemSplitList[i].split(':')[1]);
+              quantityList.push(itemSplitList[i].split(':')[2]);
+            }
+            if (itemIdList.length === priceList.length && itemIdList.length === quantityList.length) {
+              for(var i = 0; i < itemIdList.length; i++){
+                itemList.push({id:itemIdList[i].slice( 0, -4 ), price: priceList[i], quantity: quantityList[i]})
+              }
+            }
+          }
+        }
+      }
+    } catch(e) {
+    }
+    return itemList;
+  })()
+
+  //CVページ_商品情報取得_YDR
+  var itemList_ydr = (function(){
+    itemList = [];
+    try{
+      var price = 0;
+      if ('data' in window) {
+        if (data instanceof Object) {
+          var tmpItem = data["product-info"];
+          if (tmpItem !== undefined) {
+            var itemSplitList = tmpItem.split(',');
+            var itemIdList = [];
+            var priceList = [];
+            var quantityList = [];
+            for(var i = 0; i < itemSplitList.length; i++){
+              itemIdList.push(itemSplitList[i].split(':')[0]);
+              priceList.push(itemSplitList[i].split(':')[1]);
+              quantityList.push(itemSplitList[i].split(':')[2]);
+            }
+            if (itemIdList.length === priceList.length && itemIdList.length === quantityList.length) {
+              for(var i = 0; i < itemIdList.length; i++){
+                itemList.push({item_id:itemIdList[i].slice( 0, -4 ), category_id: '', price: priceList[i], quantity: quantityList[i]});
+                if (itemList.length >= 10){
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    } catch(e) {
+    }
+    return itemList;
+  })()
+
+  //CVページ_購入数量取得
+  var cv_quantity = (function(){
+    var quantity = 0;
+    try{
+      var quantityList = [];
+      var tmpQuantity;
+      if ('data' in window) {
+        if (data instanceof Object) {
+          var tmpItem = data["product-info"];
+          if (tmpItem !== undefined) {
+            var itemSplitList = tmpItem.split(',');
+            for(var i = 0; i < itemSplitList.length; i++){
+              tmpQuantity = itemSplitList[i].split(':')[2];
+              tmpQuantity = Number(tmpQuantity);
+              quantity += tmpQuantity;
+            }
+          }
+        }
+      }
+    } catch(e) {
+    }
+    return quantity;
+  })()
+
+  //購入完了ページ_売上金額取得用
+  var totalPrice = (function(){
+    var price = 0;
+    try{
+      if ('data' in window) {
+        if (data instanceof Object) {
+          var tmpItem = data["product-info"];
+          if (tmpItem !== undefined) {
+            var itemSplitList = tmpItem.split(',');
+            var priceList = [];
+            for(var i = 0; i < itemSplitList.length; i++){
+              priceList.push(itemSplitList[i].split(':')[1]);
+            }
+            for (var i = 0; i < priceList.length; i++) {
+              price += parseFloat(priceList[i]);
+            }
+          }
+        }
+      }
+    } catch(e) {
+    }
+    return price;
+  })()
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'optSetItemInfoList',
+    itemIdLIst: itemIdLIst,
+    itemIds_kanade: itemIds_kanade,
+    itemList_criteo: itemList_criteo,
+    itemList_ydr: itemList_ydr,
+    cv_quantity: cv_quantity,
+    totalPrice: totalPrice
+  });
+})()
+</script>
