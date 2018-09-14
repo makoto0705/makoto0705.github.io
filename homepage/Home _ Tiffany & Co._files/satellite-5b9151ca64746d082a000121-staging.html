@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)https://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-5b9151ca64746d082a000121-staging.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<!-- The following line must be placed in the head tag -->\n<script type=\"text/javascript\" src=\"https://p.teads.tv/teads-fellow.js\" async=\"true\"></scr"+"ipt>\n\n<!-- The following script must be placed anywhere in the body tag -->\n<script>\n  window.teads_e = window.teads_e || [];\n  window.teads_cv = window.teads_cv || { advertiserId: 10406 };\n  window.teads_e.push({\n    conversionType: \"TiffanyHomepage\"\n  });\n</scr"+"ipt>";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><!-- The following line must be placed in the head tag -->
+<script type="text/javascript" src="./teads-fellow.js.&#12480;&#12454;&#12531;&#12525;&#12540;&#12489;" async="true"></script>
+
+<!-- The following script must be placed anywhere in the body tag -->
+<script>
+  window.teads_e = window.teads_e || [];
+  window.teads_cv = window.teads_cv || { advertiserId: 10406 };
+  window.teads_e.push({
+    conversionType: "TiffanyHomepage"
+  });
+</script>
+  
+
+<img src="./track"></body></html>
