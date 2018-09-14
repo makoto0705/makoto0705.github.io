@@ -1,0 +1,22 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    window.yahoo_retargeting_id = 'NJQVLPWJO6';
+    window.yahoo_retargeting_label = '';
+    window.yahoo_retargeting_page_type = 'cart';
+    window.yahoo_retargeting_items = [];
+    var products = _satellite.getVar('products');
+    products.forEach(function(product) {
+        window.yahoo_retargeting_items.push({
+            'item_id': product.sku,
+            'category_id': product.categoryID,
+            'price': (product.price || '').split('.')[0],
+            'quantity': product.quantity || 1,
+        });
+    });
+    var script = document.createElement("script");
+    script.src = "https://b92.yahoo.co.jp/js/s_retargeting.js";
+    document.head.appendChild(script);
+} catch (e) {
+    _satellite.notify('JP - Shopping Bag - Yahoo:' + e.message, 5);
+}
+});
