@@ -1,0 +1,7 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    snaptr('track', 'SIGN_UP');
+} catch (e) {
+    _satellite.notify('dtm:all-newsletter-signup:err:' + e.message, 5);
+}
+});
