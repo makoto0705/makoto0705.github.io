@@ -1,0 +1,183 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  window.rrLayer = {
+    API_KEYS: _satellite.getVar('rich_relevance_api_keys') || {},
+    CLIENT_API_KEYS: _satellite.getVar('rich_relevance_client_api_keys') || {},
+	getApiKey: function(){
+		for (i in this.API_KEYS){
+			if (this.API_KEYS.hasOwnProperty(i) && window.location.hostname.indexOf(i) >= 0){
+				return this.API_KEYS[i];
+			}
+		}
+		return "";
+	},
+
+	getChannel: function(){
+		var siteType = (_satellite.getVar("site_type")||"");
+		if (siteType == "desktop" || siteType == "mobile" ){
+			for (i in this.CLIENT_API_KEYS){
+				if (this.CLIENT_API_KEYS.hasOwnProperty(i) && window.location.hostname.indexOf(i) >= 0){
+					return this.CLIENT_API_KEYS[i][siteType];
+				}
+			}
+		}
+		return "";
+	},
+
+	getSKU: function(p){
+		if (p.groupSku != "" && p.isGroup == true)
+			return p.groupSku;
+		else
+			return p.sku;
+	},
+
+	setCommon: function(){
+	    var server = _satellite.getVar('rich_relevance_server') || 'staging.richrelevance.com';
+		window.R3_COMMON = new r3_common();
+		R3_COMMON.setApiKey((this.getApiKey()||""));
+		R3_COMMON.setChannel((this.getChannel()||""));
+		R3_COMMON.setBaseUrl(window.location.protocol+'//' + server + '/rrserver/');
+		R3_COMMON.setClickthruServer(window.location.protocol+"//"+window.location.host);
+		R3_COMMON.setSessionId((_satellite.getVar("user_sessionID")||""));
+		R3_COMMON.setUserId((_satellite.getVar('user_id')||""));
+	},
+
+	setGeneric: function(){
+		if (typeof window.R3_COMMON !== "object") {this.setCommon();}
+		R3_COMMON.addPlacementType('generic_page');
+	},
+
+	setPDP: function(){
+		if (typeof window.R3_COMMON !== "object") {this.setCommon();}
+		R3_COMMON.addCategoryHintId(_satellite.getVar("single_product_navigational_categoryID") || _satellite.getVar("single_product_categoryID")||"");
+		var siteType = (_satellite.getVar("site_type")||"");
+		if (siteType == "desktop"){
+      
+      if(dataLayer.page.site.ID.match(/^(us|uk|it|de|fr|be|at|ie|nl|es|jp)$/)) {
+          R3_COMMON.addPlacementType('item_page.rr3');
+          R3_COMMON.addPlacementType('item_page.rr4');
+      } else {
+		     	R3_COMMON.addPlacementType('item_page.rr1');
+			    R3_COMMON.addPlacementType('item_page.rr2');
+      } 
+      
+		} else if ( siteType == "mobile" ) {
+
+      if(dataLayer.page.site.ID.match(/^(us|uk|it|de|fr|be|at|ie|nl|es)$/)) {
+			     R3_COMMON.addPlacementType('item_page.m_rr2');
+      } else {
+	      	 R3_COMMON.addPlacementType('item_page.m_rr1');
+
+      }
+
+		}
+		window.R3_ITEM = new r3_item();
+		R3_ITEM.setId(_satellite.getVar("single_product_group_sku")||_satellite.getVar("single_product_sku")||"");
+		R3_ITEM.setName(_satellite.getVar("single_product_name")||"");
+	},
+
+	setOrderConfirmation: function(){
+		if (typeof window.R3_COMMON !== "object") this.setCommon();
+		R3_COMMON.addPlacementType('purchase_complete_page');
+		window.R3_PURCHASED = new r3_purchased();
+		R3_PURCHASED.setOrderNumber(_satellite.getVar("ecommerce_purchaseID")||"");
+		if (typeof dataLayer =="object" && typeof dataLayer.products =="object" && dataLayer.products.length >0){
+			for (i in dataLayer.products){
+				var p = dataLayer.products[i];
+				if (typeof p == "object"){
+						R3_PURCHASED.addItemIdPriceQuantity((this.getSKU(p)||""), (p.price||""), (p.quantity||""));
+				}
+			}
+		}
+	},
+	setSearch: function(){
+		if (typeof window.R3_COMMON !== "object") this.setCommon();
+		R3_COMMON.addPlacementType('search_page');
+		window.R3_SEARCH = new r3_search();
+		R3_SEARCH.setTerms(_satellite.getVar("search_keyword")||"");
+		if (typeof dataLayer =="object" && typeof dataLayer.products =="object" && dataLayer.products.length >0){
+			for (i=0;i<15;i++){
+				var p = dataLayer.products[i];
+				if (typeof p == "object"){
+						R3_SEARCH.addItemId((this.getSKU(p)||""));
+				}
+			}
+		}
+	},
+	setCategory: function(){
+		if (typeof window.R3_COMMON !== "object") this.setCommon();
+		R3_COMMON.addPlacementType('category_page');
+		window.R3_CATEGORY = new r3_category();
+		R3_CATEGORY.setId(_satellite.getVar("search_categoryID")||"");
+		R3_CATEGORY.setName(_satellite.getVar("search_category_name")||"");
+		if (typeof dataLayer =="object" && typeof dataLayer.products =="object" && dataLayer.products.length >0){
+			for (i=0;i<15;i++){
+				var p = dataLayer.products[i];
+				if (typeof p == "object"){
+						R3_COMMON.addItemId((this.getSKU(p)||""));
+				}
+			}
+		}
+	},
+	setAddToCart: function(){
+		if (typeof window.R3_COMMON !== "object") this.setCommon();
+		R3_COMMON.addPlacementType('add_to_cart_page');
+		R3_COMMON.addCategoryHintId(_satellite.getVar("single_product_navigational_categoryID") || _satellite.getVar("single_product_categoryID")||"");
+		window.R3_ADDTOCART = new r3_addtocart();
+		R3_ADDTOCART.addItemIdToCart(_satellite.getVar("single_product_group_sku")||_satellite.getVar("single_product_sku")||"");
+	},
+	setShoppingCart: function(){
+		if (typeof window.R3_COMMON !== "object") this.setCommon();
+		R3_COMMON.addPlacementType('cart_page');
+		window.R3_CART = new r3_cart();
+		if (typeof dataLayer =="object" && typeof dataLayer.products =="object" && dataLayer.products.length >0){
+			for (i in dataLayer.products){
+				var p = dataLayer.products[i];
+				if (typeof p == "object"){
+ 						R3_CART.addItemId((this.getSKU(p)||""));
+				}
+			}
+		}
+	},
+	setHome: function(){
+		if (typeof window.R3_COMMON !== "object") this.setCommon();
+		R3_COMMON.addPlacementType('home_page');
+		var R3_HOME = new r3_home();
+	},
+
+	trigger: function(){
+		rr_flush_onload();
+		r3();
+		delete window.R3_COMMON;
+		delete window.R3_HOME;
+		delete window.R3_CART;
+		delete window.R3_ADDTOCART;
+		delete window.R3_CATEGORY;
+		delete window.R3_SEARCH;
+		delete window.R3_PURCHASED;
+		delete window.R3_ITEM;
+	}
+
+};
+try {
+	var genericPageList = ["/Shopping/Default.aspx","/Mobile/Shopping/Default.aspx","/Shopping/Category.aspx","/Mobile/Shopping/Category.aspx","/Customer/wishlist/WishList.aspx","/Customer/Checkout/SendTo.aspx","/Customer/Checkout/GiftMessage.aspx","/Customer/Checkout/OrderConfirmation.aspx","/Engagement/Browse.aspx","/Engagement/Item.aspx"]
+	if (typeof pageIdentifier != "undefined" && (pageIdentifier == "/Default.aspx"  || pageIdentifier == "/Mobile/default.aspx")){
+		rrLayer.setHome(); rrLayer.trigger();
+	} else if (genericPageList.indexOf(pageIdentifier) != -1){
+		rrLayer.setGeneric(); rrLayer.trigger();
+	} else if (typeof pageIdentifier != "undefined" && (pageIdentifier == "/Shopping/Item.aspx"  || pageIdentifier == "/Mobile/Shopping/Item.aspx")){
+    	rrLayer.setPDP(); rrLayer.trigger();
+    } else if (typeof pageIdentifier != "undefined" && pageIdentifier == "/Customer/Checkout/ThankYou.aspx"){
+    	rrLayer.setOrderConfirmation(); rrLayer.trigger();
+    } else if (typeof pageIdentifier != "undefined" && ( pageIdentifier == "/Shopping/CategoryBrowse.aspx" || pageIdentifier == "/Mobile/Shopping/CategoryBrowse.aspx") ) {
+    	if (_satellite.getVar("search_keyword") !== "" && _satellite.getVar("search_keyword") !== null){
+    		rrLayer.setSearch(); rrLayer.trigger();
+    	} else {
+			rrLayer.setCategory(); rrLayer.trigger();
+		}
+    } else if (typeof pageIdentifier != "undefined" && pageIdentifier == "/Customer/ShoppingBag.aspx"){
+    	rrLayer.setShoppingCart();rrLayer.trigger();
+	}
+} catch(e) {
+	_satellite.notify(e);
+}
+});

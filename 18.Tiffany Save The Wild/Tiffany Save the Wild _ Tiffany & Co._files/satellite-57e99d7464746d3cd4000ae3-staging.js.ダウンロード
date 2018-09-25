@@ -1,0 +1,100 @@
+_satellite.pushBlockingScript(function(event, target, $variables){
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+var gn = 'global', ln = 'local',
+    ag = _satellite.getVar('ga_account_global'),
+    lg = _satellite.getVar('ga_account_local'),
+    gaProducts = _satellite.getVar('ga_ecommerce_products'),
+    gaEcomAction = _satellite.getVar('ga_ecommerce_actions'),
+    gaEvents = _satellite.getVar('ga_events'),
+    gaTrackers = {'global': true, 'local': true};
+
+ga('create', {
+    trackingId: ag,
+    cookieDomain: 'auto',
+    name: gn
+});
+ga('create', {
+    trackingId: lg,
+    cookieDomain: 'auto',
+    name: ln
+});
+
+for(var gaTracker in gaTrackers)
+{
+    if (!gaTrackers.hasOwnProperty(gaTracker) || !gaTrackers[gaTracker])
+    {
+        continue;
+    }
+
+    ga(gaTracker + '.require', 'ec');
+    ga(gaTracker + '.require', 'linkid');
+    ga(gaTracker + '.require', 'linker');
+    ga(gaTracker + '.set', 'forceSSL', true);
+    if(_satellite.getVar('ecommerce_currency')) {
+        ga(gaTracker + '.set', '&cu', _satellite.getVar('ecommerce_currency'));
+    }
+    ga(gaTracker + '.linker:autoLink', ['.tiffany.']);
+
+
+    /* Ecommerce data */
+    if (typeof gaProducts === 'object' && typeof gaProducts[gaTracker] === 'object' && gaProducts[gaTracker].length)
+    {
+        for (var gaLoopI = 0, gaLoopL = gaProducts[gaTracker].length; gaLoopI < gaLoopL; gaLoopI++)
+        {
+            if (typeof gaProducts[gaTracker][gaLoopI] === 'object')
+            {
+                ga(gaTracker + '.ec:addProduct', gaProducts[gaTracker][gaLoopI]);
+            }
+            else
+            {
+                _satellite.notify('Invalid param for ga ecommerce products', 4);
+            }
+        }
+    }
+    if (typeof gaEcomAction === 'object' && typeof gaEcomAction[gaTracker] === 'object')
+    {
+        if (gaEcomAction[gaTracker].action && gaEcomAction[gaTracker].data)
+        {
+            ga(gaTracker + '.ec:setAction', gaEcomAction[gaTracker].action, gaEcomAction[gaTracker].data);
+        }
+    }
+
+    /* Page view data */
+    if (window.dataLayer && window.dataLayer.events && window.dataLayer.events.pageView)
+    {
+        var searchTerm = _satellite.getVar('search_keyword');
+        var gaLocation = _satellite.getVar('page_url');
+        
+        //check for url parameters and search keyword
+        if(searchTerm){
+            if(gaLocation.indexOf('?') > -1) gaLocation += "&searchTerm="+searchTerm;
+            else gaLocation += "?searchTerm="+searchTerm;
+        }
+      
+        ga(gaTracker + '.send', {
+            'hitType': 'pageView',
+            'location': gaLocation
+        });
+    }
+
+    /* Event data */
+    if (typeof gaEvents[gaTracker] === 'object' && gaEvents[gaTracker].length)
+    {
+        for (var gaLoopI = 0, gaLoopL = gaEvents[gaTracker].length; gaLoopI < gaLoopL; gaLoopI++)
+        {
+            if (typeof gaEvents[gaTracker][gaLoopI] === 'object')
+            {
+                ga(gaTracker + '.send', gaEvents[gaTracker][gaLoopI]);
+            }
+            else
+            {
+                _satellite.notify('Invalid param for ga event', 4);
+            }
+        }
+    }
+}
+});
