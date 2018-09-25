@@ -1,0 +1,15 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  /* Temp fix until end of holidays */
+window['TrackMobileHeaderAndFooter'] = function (linkName) 
+{
+    if (!IsNullOrEmpty(linkName)) 
+    {
+        s.prop3 = linkName;
+        s.eVar8 = linkName;
+        SetlinkTrackVars("prop3,eVar8");
+        s.prop74 = 'TrackMobileHeaderAndFooter';
+        s.tl(true, 'o', linkName);
+        ClearlinkTrackVars();
+    }
+}
+});

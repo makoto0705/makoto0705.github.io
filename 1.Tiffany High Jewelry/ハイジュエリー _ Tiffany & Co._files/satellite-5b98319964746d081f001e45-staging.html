@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)https://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-5b98319964746d081f001e45-staging.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<div id=\"deqwas-collection-k\" style=\"display:none\"></div>\n<div id=\"deqwas-k\" style=\"display:none\"></div>\n<script type=\"text/javascript\">\n/*<![CDATA[*/\n    var deqwas_k = { option: {} };\n    deqwas_k.cid = 'tiffanycojp';\n\n    (function () {\n        var script = document.createElement('script');\n        script.src = (location.protocol == 'https:' ? 'https:' : 'http:') + '//kdex005.deqwas.net/tiffanycojp/scripts/top.js?noCache=' + (new Date()).getTime();\n        script.type = 'text/javascript';\n        script.defer = true;\n        script.charset = 'UTF-8';\n        document.getElementById('deqwas-k').appendChild(script);\n    })();\n/*]]>*/\n</scr"+"ipt>";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><div id="deqwas-collection-k" style="display:none"></div>
+<div id="deqwas-k" style="display:none"><script src="https://kdex005.deqwas.net/tiffanycojp/scripts/top.js?noCache=1537865341335" type="text/javascript" defer="" charset="UTF-8"></script></div>
+<script type="text/javascript">
+/*<![CDATA[*/
+    var deqwas_k = { option: {} };
+    deqwas_k.cid = 'tiffanycojp';
+
+    (function () {
+        var script = document.createElement('script');
+        script.src = (location.protocol == 'https:' ? 'https:' : 'http:') + '//kdex005.deqwas.net/tiffanycojp/scripts/top.js?noCache=' + (new Date()).getTime();
+        script.type = 'text/javascript';
+        script.defer = true;
+        script.charset = 'UTF-8';
+        document.getElementById('deqwas-k').appendChild(script);
+    })();
+/*]]>*/
+</script>
+  
+
+</body></html>
