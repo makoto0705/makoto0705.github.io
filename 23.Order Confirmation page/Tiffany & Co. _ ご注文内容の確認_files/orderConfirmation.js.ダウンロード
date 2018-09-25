@@ -1,0 +1,639 @@
+//for tablets, move order summary in portait mode only
+if (isTablet()) {
+    var canMoveOrderSummary = false;
+}
+
+function moveOrderSummaryTablet(orientation) {
+    if (orientation == "portrait") {
+        $("#mainContent .orderSummary").appendTo("#mobileOrderSummary");
+    } else {
+        $("#mainContent .orderSummary").prependTo("#mainContent .right");
+    }
+}
+
+// Move Order Summary block on this page
+if (isSmallMobile()) {
+    $(".right .orderSummary").appendTo("#mobileOrderSummary");
+}
+
+if (isSmallMobile()) {
+    var isMobilePopupOverlay = true;
+} else {
+    var isMobilePopupOverlay = false;
+}
+
+$(document).ready(function () {
+
+    // validate Form
+    validation = $("#frmOrderConfirm").validate({
+        onsubmit: true,
+        onkeyup: false,
+        ignore: ':hidden',
+        focusInvalid: true,
+        errorPlacement: chkoutErrorPlacement,
+        showErrors: chkoutShowErrors,
+        highlight: chkoutHighlight,
+        unhighlight: chkoutUnhighlight
+    });
+
+    $("body").on("click", ".jq-show-giftcard", function () {
+        $("#divGiftCardPayment").show();
+        $(".hide-for-jp").css("padding-bottom", "0px");
+        $(this).hide();
+
+        return false;
+    });
+
+    $("body").on("click", ".jq-remove-gift-card", function () {
+        $(".jq-show-giftcard").show();
+        $(".hide-for-jp").css("padding-bottom", "40px");
+        $("#divCreditCardCharged").show();
+        $(".credit-card--bal-due").hide();
+        $(".order-summary--gift-card").hide();
+        $("#giftCardApplied").hide();
+        $("#divGiftCardPayment").hide();
+        $(".error--invalid-gc").hide();
+        $("#txtGiftCardNumber, #txtGiftCardPin").parents(".inputCol").removeClass("errorWrapper");
+        $("#egcInfo").val("");
+        $("#litGiftCard").html("Gift Card (Optional)");
+        $("#divCreditCardPayment").show();
+        $("#txtGiftCardNumber").val("");
+        $("#txtGiftCardPin").val("");
+
+        return false;
+    });
+
+    $("body").on("blur", "#txtGiftCardNumber, #txtGiftCardPin", function () {
+        var cardNum = $("#txtGiftCardNumber").val();
+        var cardPin = $("#txtGiftCardPin").val();
+
+        if (cardNum && cardPin) {
+            $(".jq-apply-gift-card").trigger("click");
+        }
+    });
+
+    $("body").on("keyup", "#txtGiftCardNumber", function (e) {
+        //masking
+        if (e.keyCode != 8 && e.keyCode != 46) {
+            var input = $(this);
+            var numberToMask = input.val().split(" ").join("");
+
+            numberToMask = numberToMask.slice(0, 4) + " " + numberToMask.slice(4, 8) + " " + numberToMask.slice(8, 12) + " " + numberToMask.slice(12, 16);
+            numberToMask = numberToMask.trim();
+
+            if (input.val() != numberToMask) {
+                input.val(numberToMask);
+            }
+        }
+    });
+
+    $("body").on("click", ".jq-apply-gift-card", function () {
+        $("#btnComplete").prop("disabled", true);
+        var errors = false;
+        var cardNum = $("#txtGiftCardNumber").val();
+        var cardPin = $("#txtGiftCardPin").val();
+        $(".error--invalid-gc").hide();
+        $("#txtGiftCardNumber, #txtGiftCardPin").parents(".inputCol").removeClass("errorWrapper");
+        //validate
+        if (!cardNum) {
+            $("#txtGiftCardNumber ~ .error--required").html("* Please enter your Tiffany Gift Card number.");
+            $("#txtGiftCardNumber ~ .error--required").show();
+            $("#txtGiftCardNumber").parents(".inputCol").addClass("errorWrapper");
+
+            errors = true;
+        } else {
+            $("#txtGiftCardNumber ~ .error--required").hide();
+            $("#txtGiftCardNumber").parents(".inputCol").removeClass("errorWrapper");
+        }
+
+        if (!cardPin) {
+            $("#txtGiftCardPin ~ .error--required").html("* Please enter your PIN.");
+            $("#txtGiftCardPin ~ .error--required").show();
+            $("#txtGiftCardPin").parents(".inputCol").addClass("errorWrapper");
+
+            errors = true;
+        } else {
+            $("#txtGiftCardPin ~ .error--required").hide();
+            $("#txtGiftCardPin").parents(".inputCol").removeClass("errorWrapper");
+        }
+
+        if (errors) {
+            $("#btnComplete").prop("disabled", false);
+            return;
+        }
+
+        $(".jq-apply-gift-card").attr("disabled", "disabled");
+
+        var json = '{"egcNum":"' + cardNum + '","pin":"' + cardPin + '"}';
+
+        $.ajax({
+            url: "/Customer/Checkout/OrderConfirmation.aspx/ApplyGiftCard",
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: json,
+            success: function (data) {
+                $(".jq-apply-gift-card").removeAttr("disabled");
+
+                $("#egcInfo").val(data.d.Info);
+
+                if (data.d.IsValid) {
+                    var amtApplied = data.d.AmtApplied;
+                    var remBal = data.d.RemBal;
+                    var balDue = data.d.BalDue;
+
+                    $(".gift-card--amt-applied").html("-" + amtApplied);
+                    $(".gift-card--oc-amt-applied").html(amtApplied);
+                    $(".gift-card--rem-bal").html(remBal);
+                    $("#litGiftCard").html("Gift Card");
+
+                    if (balDue) {
+                        $(".credit-card--bal-due").show();
+                        $(".gift-card--bal-due").html(balDue);
+                    }
+
+                    if (balDue == "$0.00") {
+                        $("#divCreditCardPayment").hide();
+                        $("#divCreditCardCharged").hide();
+                    } else {
+                        $("#divCreditCardPayment").show();
+                        $("#divCreditCardCharged").show();
+                    }
+
+                    $(".order-summary--gift-card").show();
+                    $("#giftCardApplied").show();
+                    $("#divGiftCardPayment").hide();
+                    $(".error--invalid-gc").hide();
+                    $("#txtGiftCardNumber, #txtGiftCardPin").parents(".inputCol").removeClass("errorWrapper");
+                } else {
+                    $(".error--invalid-gc").show();
+                    $("#txtGiftCardNumber, #txtGiftCardPin").parents(".inputCol").addClass("errorWrapper");
+                    $(window).scrollTop(0);
+                }
+
+                $("#btnComplete").prop("disabled", false);
+            },
+            error: function (jqXHR, status, error) {
+                $("#btnComplete").prop("disabled", false);
+            }
+        });
+        //$("#txtGiftCardNumber").val("");
+        //$("#txtGiftCardPin").val("");
+    });
+
+    //Start for  iTrack#29251
+    if ($('body').hasClass('en-US') || $('body').hasClass('en-CA') || $('body').hasClass('fr-CA')) {
+        if (typeof $("#ddlBillingAddress").find(":selected").val() != "undefined") {
+            if ($("#ddlBillingAddress").find(":selected").val() == 0) {
+                $("#btnEditBillingAddress").hide();
+            }
+            else {
+                $("#btnEditBillingAddress").show();
+            }
+        }
+        else {
+            $("#btnEditBillingAddress").hide();
+        }
+    }
+    //End for  iTrack#29251
+
+
+});
+
+function displayBillingAddress(strAddresses, idx) {
+    var arrAddresses = new Array();
+    arrAddresses = strAddresses.split("|");
+    document.getElementById('dvBillFullMultilineAddress').innerHTML = arrAddresses[idx];
+    //Start for  iTrack#29251
+    if ($('body').hasClass('en-US') || $('body').hasClass('en-CA') || $('body').hasClass('fr-CA')) {
+        if (idx == 0) {
+            $("#btnEditBillingAddress").hide();
+        }
+        else {
+            $("#btnEditBillingAddress").show();
+        }
+    }
+    //End for  iTrack#29251
+}
+
+
+function show(el) {
+    whichEl = document.getElementById(el);
+    if (whichEl) {
+        whichEl.style.display = "block";
+    }
+}
+function hide(el) {
+    whichEl = document.getElementById(el);
+    if (whichEl) {
+        whichEl.style.display = "none";
+    }
+}
+
+function toggleCheckbox(checkboxID, divID) {
+    if (checkboxID.checked) { show(divID) }
+    else { hide(divID) }
+}
+
+function togglePaymentMethods() {
+    formObj = document.forms['frmOrderConfirm']
+    if (formObj.paymentMethod[0].checked) {
+        show('divCreditCardPayment'); show('divCreditCardPaymentButton');
+        $("#checkoutAdditionalInfo").show();
+    }
+    else {
+        hide('divCreditCardPayment'); hide('divCreditCardPaymentButton');
+        $("#checkoutAdditionalInfo").hide();
+    }
+
+    if (formObj.paymentMethod[1].checked && formObj.paymentMethod[1].value == 'giftcard') {
+        show('divGiftCardPayment'); show('divGiftCardPaymentButton');
+    }
+    else {
+        hide('divGiftCardPayment'); hide('divGiftCardPaymentButton');
+    }
+
+    if (formObj.paymentMethod[1].checked && formObj.paymentMethod[1].value == 'cod') {
+        $("[id*='divCODPaymentButton']").show();
+    }
+    else {
+        $("[id*='divCODPaymentButton']").hide()
+    }
+}
+
+function showContent() {
+    if (document.getElementById("hdProcessCreditCard").value == 'hideMain') {
+        hide('mainContent');
+        hide('footer');
+        $(".back-to-sb-link").hide();
+        $(".back-to-top").hide();
+        show('pnlProcessing');
+        $("#divLogo a").attr("onclick", "return false;");
+        //hide('divHeaderCheckout');
+        //show('divHeaderCheckoutDisabled');
+        if (document.getElementById("hdInvokeCompleteClick").value == 'true') {
+            //Perform Postback to complete order
+            __doPostBack('btnComplete', 'CCAuthContinue');
+        }
+    }
+    if (document.getElementById("hdProcessCreditCard").value == 'showMain') {
+        show('mainContent');
+        show('footer');
+        $(".back-to-sb-link").show();
+        $(".back-to-top").show();
+        hide('pnlProcessing');
+        $("#divLogo a").removeAttr("onclick");
+        //hide('divHeaderCheckoutDisabled');
+        //show('divHeaderCheckout');
+        document.getElementById("hdProcessCreditCard").value = '';
+    }
+
+    // if site is UK or EU site, then diable the btncomplete initially.
+    //once uer checks the terms of conditions, then enable it.
+    if (locale.toLowerCase() == 'en-gb' || locale.toLowerCase() == 'de-at' || locale.toLowerCase() == 'de-de' ||
+        locale.toLowerCase() == 'en-be' || locale.toLowerCase() == 'en-ie' || locale.toLowerCase() == 'en-nl' ||
+        locale.toLowerCase() == 'es-es' || locale.toLowerCase() == 'fr-fr' || locale.toLowerCase() == 'it-it') {
+        EnableDisablePurchaseButton();
+    }
+}
+
+function maintainScoll() {
+    var strAnchor = ''
+    if ((strAnchor == "rbGiftCard") ||
+		(strAnchor == "rbCreditCard") ||
+		(strAnchor == "btnApplyGiftCard") ||
+		(strAnchor == "btnApplyGiftCard2") ||
+		(strAnchor == "btnComplete") ||
+		(strAnchor == "btnComplete2") ||
+		(strAnchor.indexOf("chkMultipleHolidaysGiftCard") > -1) ||
+		(strAnchor.indexOf("chkMultipleHolidaysCreditCard") > -1)) {
+        window.location = "#paymentInfo";
+    }
+}
+
+function showOrHide() {
+    /* No longer valid
+      var formObj = document.forms['frmOrderConfirm'];
+      if (formObj.paymentMethod != null && typeof(formObj.paymentMethod) != "undefined" ) {
+          if (formObj.paymentMethod[0].checked)
+          {
+              P7_Snap('btnComplete','pending',0,0);
+              if(document.layers){document.pending.visibility="visible";}
+              if(document.all){document.all.pending.style.visibility="visible";}
+              if(document.getElementById){document.getElementById("pending").style.visibility="visible";}
+          }
+          else if (formObj.paymentMethod[1].checked)
+          {
+              P7_Snap('btnApplyGiftCard','pendingApplyOrder',0,0);
+              if(document.layers){document.pendingApplyOrder.visibility="visible";}
+              if(document.all){document.all.pendingApplyOrder.style.visibility="visible";}
+              if(document.getElementById){document.getElementById("pendingApplyOrder").style.visibility="visible";}
+          }
+      }
+      //If no other payment method has bee declared, use default
+      else {
+          P7_Snap('btnComplete','pending',0,0);
+          if(document.layers){document.pending.visibility="visible";}
+          if(document.all){document.all.pending.style.visibility="visible";}
+          if(document.getElementById){document.getElementById("pending").style.visibility="visible";}
+      }
+      */
+}
+
+// ND: Rewritten to more current standards, no longer require Netscape 4 support
+function P7_Snap(targetObjectName, sourceObjectName, xOffset, yOffset) {
+    var targetObject = document.getElementById(targetObjectName);
+    var sourceObject = document.getElementById(sourceObjectName);
+
+    if (targetObject != null && typeof (targetObject) != "undefined" && sourceObject != null && typeof (sourceObject) != "undefined") {
+        var targetPosition = BrowserUtils.getPosition(targetObject);
+        sourceObject.style.left = (targetPosition.left + xOffset) + "px";
+        sourceObject.style.top = (targetPosition.top + yOffset) + "px";
+    }
+}
+
+//function to remove any character which has ascii 153 or 174 from the string parameter.
+//ascii 153 is the trademark sign, 174 is the regsitred sign.
+//used by omniture.
+function getStrWoAscii(str) {
+    i = 0;
+    while (i < str.length) {
+        if (str.charCodeAt(i) == 8482 || str.charCodeAt(i) == 174) { str = str.replace(str.charAt(i), ''); }
+        else { i++; }
+    }
+    return str;
+}
+
+
+// Normally the doPostBack calls are done right in the link, but when you 
+// press the enter key while focussed in a form field, Firefox automatically
+// picks the first postback call which is incorrect when working with 
+// credit card. Instead, we decide on what to use based directly on 
+// the selected radio button
+function performPostBack(evt) {
+    if (validateAndSubmit($.Event(evt))) {
+        $(".btn_majorAction").addClass("disabled").prop("disabled", true);
+
+        var formObj = document.forms['frmOrderConfirm'];
+        if (formObj.paymentMethod != null && typeof (formObj.paymentMethod) != "undefined") {
+            if (formObj.paymentMethod[0].checked) {
+                return __doPostBack('btnComplete', '');
+            }
+            else if (formObj.paymentMethod[1].checked) {
+                if ($(formObj.paymentMethod[1]).val() == "giftcard") {
+                    return __doPostBack('btnApplyGiftCard', '');
+                } else {
+                    return __doPostBack('btnCODComplete', '');
+                }
+            }
+        }
+            //If no other payment method has bee declared, use default.
+        else {
+            return __doPostBack('btnComplete', '');
+        }
+    }
+}
+
+//This is the function used to bring up the Visa or Master Card authentication window.
+
+function createModalPopUp(pwidth, pheight, blnMask, obj, ptop, href, bColor, blnBorder, mColor, opacity) {
+    divPopupHolderTop = ptop;
+    blnPopupMask = blnMask;
+    ptop = ptop + getPageScrollTop();
+    divPopupHolderHeight = pheight;
+    if (blnPopupMask) { pBorderWidth = 1 } else { pBorderWidth = 5 }
+    if (typeof blnBorder == 'undefined') { } else { if (!blnBorder) { pBorderWidth = 0 } }
+
+    if (typeof bColor == 'undefined') { if (blnPopupMask) { borderColor = "E2E0DB" } else { borderColor = "E0E0E0" } }
+    else { borderColor = bColor }
+    var destURL = href
+    var isSafari = (navigator.userAgent.toLowerCase().indexOf("safari") != -1); true; false;
+    txtPopUpContent = '<iframe id="iframeContent" name="iframeContent" src="' + destURL + '" style="border:0; width:' + pwidth + 'px; height:' + pheight + 'px" frameborder="0" scrolling="auto"></iframe>'
+    divPopupHolder = document.createElement("div");
+    document.body.insertBefore(divPopupHolder, document.body.firstChild);
+    divPopupHolder.id = "divPopUp"
+    divPopupHolder.className = "divPopUp"
+    divPopupHolder.style.position = "absolute";
+    divPopupHolder.style.width = pwidth + "px";
+    divPopupHolder.style.marginLeft = Math.round((pwidth + (pBorderWidth * 2)) / 2) * -1 + "px"
+    divPopupHolder.style.left = "50%";
+    divPopupHolder.style.top = ptop + "px";
+    divPopupHolder.style.borderWidth = pBorderWidth + "px";
+    divPopupHolder.style.borderColor = borderColor
+    divPopupHolder.style.borderStyle = "solid"
+    divPopupHolder.innerHTML = txtPopUpContent;
+
+    //Create Footer Mask to cover contents below
+    divMaskHeaderHolder = document.createElement("div");
+    document.body.insertBefore(divMaskHeaderHolder, document.body.firstChild);
+    divMaskHeaderHolder.id = "divMaskHeader"
+    if (blnPopupMask) {
+        divMaskHeaderHolder.className = "divHeaderMask"
+        if (typeof mColor == 'undefined') { }
+        else { divMaskHolder.style.backgroundColor = mColor; }
+    }
+    else { divMaskHeaderHolder.className = "divClearMask" }
+    divMaskHeaderHolder.style.height = "84px"
+    divMaskHeaderHolder.style.top = "0px"
+    divMaskHeaderHolder.innerHTML = '&nbsp;';
+
+    //Create Mask to cover contents below
+    divMaskHolder = document.createElement("div");
+    document.body.insertBefore(divMaskHolder, document.body.firstChild);
+    divMaskHolder.id = "divMask"
+    if (blnPopupMask) {
+        divMaskHolder.className = "divMask";
+        if (typeof mColor == 'undefined') { }
+        else {
+            divMaskHolder.style.backgroundColor = mColor;
+        }
+    }
+    else { divMaskHolder.className = "divClearMask" }
+    var pagebtmPad = 25;
+    var pagetopPad = 0;
+    var headerHeight = 84;
+
+    divMaskHolder.style.height = (getPageHeight() + pagebtmPad - headerHeight) + "px"
+    divMaskHolder.style.top = (pagetopPad + headerHeight) + "px"
+    divMaskHolder.innerHTML = '&nbsp;';
+    //divMaskHolder.onclick = closePopUp;
+
+    //Create Footer Mask to cover contents below
+    divMaskFooterHolder = document.createElement("div");
+    document.body.insertBefore(divMaskFooterHolder, document.body.firstChild);
+    divMaskFooterHolder.id = "divMaskFooter"
+    if (blnPopupMask) {
+        divMaskFooterHolder.className = "divFooterMask";
+    }
+    else { divMaskFooterHolder.className = "divClearMask" }
+    divMaskFooterHolder.style.height = "80px"
+    divMaskFooterHolder.style.top = getPageHeight() + pagebtmPad + "px"
+    divMaskFooterHolder.innerHTML = '&nbsp;';
+
+    //IE 6 hack to make the mask cover over select elements
+    if (isIE6() && blnPopupMask) {
+        divMaskIframeHolder = document.createElement("iframe");
+        divMaskIframeHolder.id = "divShimMask"
+        divMaskIframeHolder.className = "divShimMask"
+        divMaskIframeHolder.src = "/shared/images/misc/clr.gif";
+        divMaskIframeHolder.scrolling = "no"
+        divMaskIframeHolder.frameBorder = "0"
+        divMaskIframeHolder.style.width = "960px";
+        divMaskIframeHolder.style.height = (getPageHeight() + pagebtmPad) + "px"
+        document.body.insertBefore(divMaskIframeHolder, document.body.firstChild);
+    }
+}
+
+function ContinueCCAuthProcess(paRes, MD) {
+    //Close overlay from bank
+    closePopUp();
+    showOrHide();
+
+    var frm = document.forms['frmOrderConfirm'];
+    frm.hdnBankPayloadResponse.value = paRes;
+    frm.hdnMD.value = MD;
+
+    //Hide the main Form and show OrderProcessing DIV.
+    document.getElementById('hdProcessCreditCard').value = 'hideMain';
+    showContent();
+
+    //Perform Postback to complete order
+    __doPostBack('btnComplete', 'CCAuthContinue');
+
+}
+function EnableDisablePurchaseButton() {
+
+    var disbtn = document.getElementById('pending');
+    var enb = document.getElementById('btnComplete');
+
+    if (document.getElementById('chkTermsOfSale').checked == false) {
+        document.getElementById("pending").className = "termsOfSale";
+        document.getElementById("pending").style.position = "static";
+        document.getElementById("pending").style.visibility = "visible";
+        document.getElementById("divCompletePurchase").style.display = "none";
+
+    }
+    else {
+        document.getElementById("pending").className = "";
+        document.getElementById("pending").style.visibility = "hidden";
+        document.getElementById("pending").style.position = "absolute";
+        document.getElementById("divCompletePurchase").style.display = "block";
+    }
+
+}
+
+function handleAboutCardValidation() {
+    var actionURL = ""
+    var showAmex = false;
+    var showNonAmex = false;
+
+    if ($("#visaLogo").css("display") != "none") {
+        showNonAmex = true;
+    }
+    if ($("#mastercardLogo").css("display") != "none") {
+        showNonAmex = true;
+    }
+    if ($("#discoverLogo").css("display") != "none") {
+        showNonAmex = true;
+    }
+    if ($("#amexLogo").css("display") != "none") {
+        showAmex = true;
+    }
+    if (showAmex == false && showNonAmex == false) {
+        showAmex = showNonAmex = true;
+    }
+
+    actionURL = '/Customer/Checkout/AboutCardValidation.aspx?showAmex=' + showAmex + '&showNonAmex=' + showNonAmex;
+    if (typeof isMobilePopupOverlay != "undefined" && isMobilePopupOverlay == true) {
+        createPopUp(300, 490, false, this, 105, actionURL);
+    } else {
+        createPopUp(400, 490, false, this, 105, actionURL);
+    }
+}
+function clearSecuredInfo() {
+
+    $("#txtGiftCardNumber").val("");
+    $("#txtGiftCardPin").val("");
+    $("#txtCreditCardNumber").val("");
+    $("#ddlTenderTypes").val("");
+    $("#txtCreditCardExpiration").val("");
+    $("#txtCardValidationCode").val("");
+    clearCCLogo();
+}
+
+function clearInfo(paymentType) {
+
+    var frmOrderConfirm = document.forms['frmOrderConfirm'];
+
+    switch (paymentType) {
+        case "egc":
+            if (typeof (frmOrderConfirm.txtGiftCardNumber) !== "undefined") {
+                frmOrderConfirm.txtGiftCardNumber.value = ""
+                frmOrderConfirm.txtGiftCardPin.value = ""
+            }
+            break;
+        case "cc":
+            //frmOrderConfirm.txtCreditCardName.value = ""
+            if ($('#ddlTenderTypes').length) {
+                frmOrderConfirm.ddlTenderTypes.value = ""
+            }
+            frmOrderConfirm.txtCreditCardNumber.value = ""
+            //updateCreditCardInputs();
+            //frmOrderConfirm.ddlCreditCardExpirationMonth.value = 0
+            //frmOrderConfirm.ddlCreditCardExpirationYear.value = 0
+            frmOrderConfirm.txtCreditCardExpiration.value = "";
+            break;
+    }
+}
+
+function chkOrderAction() {
+    if (document.getElementById('chkTermsOfSale') != null) {
+        if (document.getElementById('chkTermsOfSale').checked == false) {
+            document.getElementById("errorTermsOfSale").style.display = "block";
+            document.getElementById("errorTermsOfSale").innerHTML = "<p>" + ERROR_TERMS_OF_SALE + "</p>";
+            EnableDisablePurchaseButton();
+        }
+        else {
+            document.getElementById("errorTermsOfSale").style.display = "none";
+        }
+    }
+}
+
+
+function fixOrderDetails() {
+    var viewportScrollTop = $(window).scrollTop();
+    var viewportScrollBottom = viewportScrollTop + $(window).height();
+    var containerOffset = $(".bag-right").offset().top;
+    var objBottom = viewportScrollTop + $(".bag-right-content").outerHeight();
+    var bottomOffset = $(".bag-right").offset().top + $(".bag-right").outerHeight();
+
+    if ($(".bag-left-content").outerHeight() + 18 > $(".bag-right-content").outerHeight()) {
+        if (viewportScrollTop >= containerOffset) {
+            $(".bag-right-content").addClass("fixed");
+
+            if (objBottom >= bottomOffset) {
+                $(".bag-right-content").addClass("bottomed");
+            } else {
+                $(".bag-right-content").removeClass("bottomed");
+            }
+        } else {
+            $(".bag-right-content").removeClass("fixed").removeClass("bottomed");
+        }
+    } else {
+        $(".bag-right-content").removeClass("fixed").removeClass("bottomed");
+    }
+}
+
+$(window).load(function () {
+    fixOrderDetails();
+});
+
+$(window).resize(function () {
+    viewportHeight = $(window).height();
+    fixOrderDetails();
+});
+
+
+$(window).scroll(function () {
+    fixOrderDetails();
+});

@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://www.ps2.tiffany.co.jp/Customer/Checkout/OrderConfirmation.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="pragma" content="nocache">
+  <meta http-equiv="expires" content="0">  
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="cache-control" content="must-revalidate">
+  <meta http-equiv="cache-control" content="max-age=0">
+  <meta http-equiv="cache-control" content="no-store">
+  
+  
+	
+    <iframe src="javascript:false" title="" style="width: 0px; height: 0px; border: 0px; display: none;" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/saved_resource.html"></iframe><script async="" type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/rtp.js.ダウンロード"></script><script async="" src="https://static.ads-twitter.com/uwt.js"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/307547469578471" async=""></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/1753701858184394" async=""></script><script async="" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/fbevents.js.ダウンロード"></script><script type="text/javascript" async="" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/linkid.js.ダウンロード"></script><script type="text/javascript" async="" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/ec.js.ダウンロード"></script><script async="" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/scevent.min.js.ダウンロード"></script><script async="" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/analytics.js.ダウンロード"></script><script async="" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/saved_resource"></script><script language="javascript" type="text/javascript">
+        if (navigator.userAgent.match(/iPad/i) != null) {
+            document.write('<meta name="viewport" content="width=1024">');
+        } else if (navigator.userAgent.match(/iPod/i) != null || navigator.userAgent.match(/iPhone/i) != null) {
+            document.write('<meta name="viewport" content="width=320">');
+        } else {
+            document.write('<meta name="viewport" content="width=device-width, initial-scale=1" />');
+        }
+    </script><meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta http-equiv="content-language" content="ja-jp">
+
+    <meta name="description" content="アメリカを代表する世界のプレミア・ジュエラー、ティファニーは1837年の創設以来、時を越えて多くの人々を魅了してきました。ティファニーのジュエリー、シルバー、ウォッチ、そのデザインの数々は何世代にもわたって世界中で愛され続けています。">
+    
+	
+    
+  
+<meta name="robots" content="noindex, nofollow">
+   
+  <link rel="stylesheet" href="./Tiffany &amp; Co. _ ご注文内容の確認_files/HCo_fonts.css" type="text/css">
+  <link href="./Tiffany &amp; Co. _ ご注文内容の確認_files/checkout_merged.css" rel="stylesheet" type="text/css">
+  
+    <script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/checkout_merged.js.ダウンロード"></script>
+    <script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/orderConfirmation.js.ダウンロード"></script>
+
+	<title>Tiffany &amp; Co. | ご注文内容の確認</title>
+
+<script language="JavaScript" type="text/JavaScript">
+
+// Validation Init
+    $(document).ready(function() {
+        if (isMobileSite) {
+            //force order summary open for this page on mobile
+            $("body").addClass("mobile-site");
+            $(".orderSummary").addClass("expanded");
+            $(".orderSummary h4 i").hide();
+            $(".orderSummary h4").on("click", function() {
+            
+                return false;
+            });
+        }
+
+        addControlValidation({fieldName : "txtCreditCardName", rules: {required: true, messages:{required: "* クレジットカードに記されているお名前を入力してください。"}}});
+        addControlValidation({fieldName : "txtCreditCardNumber", rules: {required: true, messages:{required: "* クレジットカード番号を入力してください。" }}});
+        addControlValidation({fieldName : "ddlTenderTypes", rules: {required: true, messages : {required : "* クレジットカードの種類を選択してください。"}}});
+
+        addControlValidation({fieldName : "txtCreditCardExpiration", rules: {required: true,isValidCCExpMonth:true,isValidCCExpYear:true,
+            messages:{
+                required: "* クレジットカードの有効期限の月を入力してください。",
+                isValidCCExpMonth: "* クレジットカードの有効期限の月を入力してください。",
+                isValidCCExpYear:"* クレジットカードの有効期限の年を入力してください。"}}});
+        addControlValidation({fieldName : "txtCardValidationCode", rules: {required: true, number:true, messages:{required: "＊クレジットカードのセキュリティ コードを入力してください。", number: "＊クレジットカードのセキュリティ コードをご確認の上、再度入力してください。問題が解決されない際は、カスタマー サービス 0120 488 712までお問い合わせください。", minlength: "＊クレジットカードのセキュリティ コードをご確認の上、再度入力してください。問題が解決されない際は、カスタマー サービス 0120 488 712までお問い合わせください。", maxlength: "＊クレジットカードのセキュリティ コードをご確認の上、再度入力してください。問題が解決されない際は、カスタマー サービス 0120 488 712までお問い合わせください。"}}});
+        addControlValidation({fieldName : "chkReadTerms", rules: {required: true, messages:{required: "txtEstoreTermsConditionsError"}}});
+        addControlValidation({fieldName : "chkTermsOfSale", rules: {required: true, messages:{required: "OrderConfirmationTermsOfSaleNotSelected"}}});
+        addControlValidation({fieldName : "txtEmployeeID", rules: {required: true, digits:true, messages:{required: "RetailEmployeeNotValid",digits: "RetailEmployeeNotValid"}}});
+        addControlValidation({fieldName : "txtEmployeePin", rules: {required: true, digits:true, messages:{required: "RetailEmployeeNotValid",digits: "RetailEmployeeNotValid"}}});
+        addControlValidation({fieldName : "CustomerPrivacyPolicy$ctl00$chkGppAccepted", rules: {required: true, messages:{required: "* 上記のチェックボックスにチェックマークを入れ、グローバルプライバシーポリシーに同意することを確証してください."}}});
+        addControlValidation({fieldName : "CustomerPrivacyPolicy$ctl00$radAcceptGpp", rules: {required: true, notEqual: "0", messages:{required: "* 上記のチェックボックスにチェックマークを入れ、グローバルプライバシーポリシーに同意することを確証してください.", notEqual: "* 上記のチェックボックスにチェックマークを入れ、グローバルプライバシーポリシーに同意することを確証してください."}}});
+        $("input:radio[name=paymentMethod]").click(function(){if ($(this).attr("id") == "chkPaymentMethodCOD") {$("#CODAdditionalText").show()} else {$("#CODAdditionalText").hide()}});
+
+        
+
+    });      
+
+    
+shippingAddressObj = {"ID":0,"AddressType":2,"TaxAreaID":0,"WebCustomerID":null,"CountryID":3,"PreName":"","GivenName":"テスト","GivenNameKana":"テスト","FamilyName":"ティファニー","FamilyNameKana":"ティファニー","Address1":"丸の内2-1-1","Address2":"","Address3":"","City":"千代田区","Region":"東京都","Gender":2,"EmailAddress":"","RegistryID":0,"Phone1":"0368954455","Phone2":"","ShipToBillingAddress":false,"NDDOptionAvailable":false,"ISOCountryCode":null,"ISOCountryCodeElement":null,"DateLastUsed":"\/Date(-62135578800000)\/","IsRegistryAddress":false,"PostalCode":"100","PostalCode2":"0005","Phones":[],"Country":3,"CountryName":"","CompanyName":null};
+
+        var locationsServiceURL = '/Customer/Checkout/OrderConfirmation.aspx/GetStateAndCityForPostalCode';
+        var taxServiceURL = '/Customer/Checkout/OrderConfirmation.aspx/CalculateTaxes';
+        var isZipLookUpApplicable = false;
+        var isTaxLookUpApplicable = false;        
+        var lookUpTimeOut = 30000;
+        var isGuesCheckOut = $.parseJSON('True'.toLowerCase());
+        var isMobileSite = 'false';
+    var bannerText = [{"BannerText":null,"BannerType":null,"LearnMoreText":null,"LearnMoreWrapper":null,"DtmDMCode":null}];
+    var bannerLearnMore = '詳細を見る';
+
+    var invalidCreditCardMessage = '* クレジットカード番号を正しく入力してください。';
+
+    function LaunchCreditCardBankVerification(isCookieEnabled) {
+
+        var frm = document.forms['frmPost'];
+        var showAmex = false;
+        var showNonAmex = false;
+
+        if ($("#visaLogo").css("display") != "none") {
+            showNonAmex = true;
+        }
+        if ($("#mastercardLogo").css("display") != "none") {
+            showNonAmex = true;
+        }
+        if ($("#discoverLogo").css("display") != "none") {
+            showNonAmex = true;
+        }
+        if ($("#amexLogo").css("display") != "none") {
+            showAmex = true;
+        }
+        if (showAmex == false && showNonAmex == false) {
+            showAmex = showNonAmex = true;
+        }
+
+        frm.action = 'https://www.ps2.tiffany.co.jp/customer/checkout/CreditCardAuthentication.aspx?showAmex=' + showAmex + '&showNonAmex=' + showNonAmex;
+        //If Cookieless mode, add cookietest=1 to the url, so that it does not repost itself and cause the POST data to loose during postback done for performing cookie test.
+        if (isCookieEnabled = 'false') {
+            frm.action = frm.action + '?cookietest=1&mysid2=4d24f1f2728d49b4ace089b374fa1a67';
+        }
+        frm.target = "iframeContent";
+
+        //Put in other variables to post to overlay form
+        frm.hdnCyberSourceRequestID_Popup.value = document.getElementById('hdnCyberSourceRequestID').value;
+        frm.hdnCyberSourceAcsUrl_Popup.value = document.getElementById('hdnCyberSourceAcsUrl').value;
+        frm.hdnCyberSourceTermUrl_Popup.value = document.getElementById('hdnCyberSourceTermUrl').value;
+        frm.hdnCyberSourcePayload_Popup.value = document.getElementById('hdnCyberSourcePayload').value;
+        frm.hdnIsFromOC.value = "yes";
+        createModalPopUp(450, 500, true, this, 105, '/shared/images/misc/clr.gif', '565656');
+        frm.submit();
+    }
+
+</script>
+
+<script language="JavaScript" type="text/JavaScript">
+<!--
+//EKCarte requires authentication info on payment page. 
+function ShowHideCreditCardAuthInfoSection(cardType)
+{
+    
+    if(cardType == "VISA") {
+
+        //Show Visa Info Section
+	    //document.getElementById("trCCLearnMore").style.display = '';
+	    
+	    if(document.getElementById("trVisa"))
+	    {
+	    document.getElementById("trVisa").style.display = '';
+	    }
+	    if(document.getElementById("trMasterCard"))
+	    {
+	    document.getElementById("trMasterCard").style.display = 'none';
+	    }
+	    //TTA Change Start	    
+	    var pnlTTA = document.getElementById("pnlTTA");	    
+	    if(pnlTTA)
+	    {
+	        pnlTTA.style.display='none';	        	        
+	    }
+	    //TTA change end
+
+    } 
+    else if ((cardType == "MC") || (cardType == "MA"))
+     {
+     //||(cardType == "EK") We are not offering this anymore.
+
+        //Show Mastercard Info Section
+	    //document.getElementById("trCCLearnMore").style.display = '';
+	    
+	    if(document.getElementById("trVisa"))
+	    {
+	    document.getElementById("trVisa").style.display = 'none';
+	    }
+	    if(document.getElementById("trMasterCard"))
+	    {
+	    document.getElementById("trMasterCard").style.display = '';
+	    }
+    //TTA Change Start
+	    var pnlTTA = document.getElementById("pnlTTA");	    
+	    if(pnlTTA)
+	    {
+	        pnlTTA.style.display='none';	        
+	    }
+	    //TTA change end	    
+    } else if(cardType == "TCO")
+    {        
+        //hide Visa and Master Card Info section
+	    //document.getElementById("trCCLearnMore").style.display = 'none';
+	    
+	    if(document.getElementById("trVisa"))
+	    {
+	    document.getElementById("trVisa").style.display = 'none';
+	    }
+	    if(document.getElementById("trMasterCard"))
+	    {
+	    document.getElementById("trMasterCard").style.display = 'none'; 
+	    }
+	    //TTA Change Start. TTA will be shown only if Business rules are met
+        
+	    //TTA change end	    
+    }
+    else      
+    {
+        //hide Visa and Master Card Info section
+	    //document.getElementById("trCCLearnMore").style.display = 'none';
+	    if(document.getElementById("trVisa"))
+	    {
+	    document.getElementById("trVisa").style.display = 'none';
+	    }
+	    if(document.getElementById("trMasterCard"))
+	    {
+	    document.getElementById("trMasterCard").style.display = 'none';
+	    }
+	    //TTA Change Start
+	    var pnlTTA = document.getElementById("pnlTTA");	    
+	    if(pnlTTA)
+	    {
+	        pnlTTA.style.display='none';
+	    }
+	    //TTA change end	
+    }
+}
+/*
+function updateCreditCardInputs() {
+
+	var frmOrderConfirm = document.forms['frmOrderConfirm'];
+	var obj = frmOrderConfirm.ddlTenderTypes;     
+    
+    
+
+
+	if(obj != null)
+	{	
+	switch (obj.value){
+		case "VISA": 
+			//document.getElementById("trCardValidationCode").style.display = ''; 
+			//document.getElementById("trExpirationDate").style.display = ''; 
+			frmOrderConfirm.txtCardValidationCode.disabled = false;
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#ffffff";
+            ShowHideCreditCardAuthInfoSection("VISA");
+			break;
+	    case "CB":
+	    case "CS":
+		case "AMEX": 
+			//document.getElementById("trCardValidationCode").style.display = ''; 
+			//document.getElementById("trExpirationDate").style.display = '';
+			frmOrderConfirm.txtCardValidationCode.disabled = false;
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#ffffff";
+            ShowHideCreditCardAuthInfoSection("AMEX");
+			break;
+	   // case "EK":// No more offered.
+		case "MC":
+			//document.getElementById("trCardValidationCode").style.display = ''; 
+			//document.getElementById("trExpirationDate").style.display = '';
+			frmOrderConfirm.txtCardValidationCode.disabled = false;
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#ffffff";
+			ShowHideCreditCardAuthInfoSection("MC");
+			break;
+			
+		case "NOVS":
+			//document.getElementById("trCardValidationCode").style.display = ''; 
+			//document.getElementById("trExpirationDate").style.display = '';
+			frmOrderConfirm.txtCardValidationCode.disabled = false;
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#ffffff";
+            ShowHideCreditCardAuthInfoSection("NOVS");
+			break;
+			
+		case "TCO":
+			//document.getElementById("trExpirationDate").style.display = 'none';
+			//document.getElementById("trCardValidationCode").style.display = 'none'; 
+			frmOrderConfirm.txtCardValidationCode.disabled = true;
+			frmOrderConfirm.txtCardValidationCode.value = "";
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#EBEBE4";
+            ShowHideCreditCardAuthInfoSection("TCO");			
+			break;
+        case "LA":
+		case "JCB":
+			//document.getElementById("trCardValidationCode").style.display = 'none'; 
+			//document.getElementById("trExpirationDate").style.display = '';
+			frmOrderConfirm.txtCardValidationCode.disabled = true;
+			frmOrderConfirm.txtCardValidationCode.value = "";
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#EBEBE4";
+            ShowHideCreditCardAuthInfoSection("JCB");			
+			break;	    
+		default : 
+			//document.getElementById("trCardValidationCode").style.display = 'none'; 
+			frmOrderConfirm.txtCardValidationCode.disabled = true;
+			frmOrderConfirm.txtCardValidationCode.value = "";
+			frmOrderConfirm.txtCardValidationCode.style.backgroundColor = "#EBEBE4";
+            ShowHideCreditCardAuthInfoSection("default");
+	    }
+	}
+
+
+
+//case of card holder name in US EStore. 
+// Current implementation, TCO credit card doesn't require the Card Holder Name. We will continue that with the change of all credit cards. 
+              
+
+}
+*/
+
+
+function updateDaibikiInOrderSummary(paymentType)
+{
+    if(paymentType == "creditcard")
+    {
+        var daibikiFees = '';
+        var grandTotal = '¥292,600';        
+
+        $("[id*='_pnlDaibikiFees']").hide();
+        $("#grand_total_value").text(grandTotal);        
+
+        if (!isGuesCheckOut)
+        {
+            $("#billingInfoRegistered").show();
+            $("#billingInfoGuest").hide();    
+            
+            //If these were shown due to cod, hide again when CC is chosen
+            $("#BillingAddressInputCtl_ctl00_NonPhoneAddressFields").hide();         
+            $("#BillingAddressInputCtl_ctl00_PhoneAddressFields").hide();         
+            $("#pnlChkShipToBill").hide();   
+            $("#phoneOnlyFields").hide(); 
+            $("#divBillingInfo .title").hide();
+        } 
+        else 
+        {
+            $("#billingInfoRegistered").hide();
+            $("#billingInfoGuest").show();  
+
+            //If these were hidden due to cod, show again when CC is chosen
+            $("#BillingAddressInputCtl_ctl00_NonPhoneAddressFields").show();         
+            $("#BillingAddressInputCtl_ctl00_PhoneAddressFields").show();         
+            $("#pnlChkShipToBill").show();
+			updateBillingSameAsShipping();
+            $("#phoneOnlyFields").show();
+            $("#divBillingInfo .title").show();
+        }
+        $("#divCreditCardPaymentButton").show();    
+        $("#divCODPaymentButton").hide();    
+    }    
+    else if(paymentType == "cod")
+    {
+
+        var daibikiFees = '¥1,080';
+        var grandTotal = '¥293,680';
+
+        $("#grand_total_value").text(grandTotal);
+        $("[id*='_pnlDaibikiFees']").show();
+
+        $("#billingInfoRegistered").hide();
+        $("#billingInfoGuest").show();
+        $("#BillingAddressInputCtl_ctl00_NonPhoneAddressFields").hide();         
+        $("#BillingAddressInputCtl_ctl00_PhoneAddressFields").show();           
+        $("#pnlChkShipToBill").hide();
+        $("#phoneOnlyFields").hide();
+        $("#divBillingInfo .title").hide();   
+		$("#billingSameAsShipping").hide();
+        $("#divCreditCardPaymentButton").hide();    
+        $("#divCODPaymentButton").show();    
+    }
+}
+
+var ERROR_TERMS_OF_SALE = "* Please confirm that you agree to the Terms of Sale by checking the checkbox above."
+//-->
+
+
+</script>
+<style>
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.mobile-site .orderSummary { border-bottom: 0; }
+</style>
+
+
+<style type="text/css">
+#pnlGlobalError {
+	margin-bottom: 5px;
+}
+.checkoutRB {
+    font-size:11px;
+    text-transform:none;
+}
+.engravingNote {
+	margin-top:8px;
+}
+.tblOrderConfirmForm td { width:auto; }
+#pnlTTA .tblOrderConfirmForm.formPadBtm10 .trTTA .tdIsTTA #labelIsTTA {
+	display: block;
+	text-indent: -10px;
+}
+#pnlTTA .tblOrderConfirmForm.formPadBtm10 .trTTA .tdIsTTA #navTTA {
+	display: block;
+	text-indent: -13px;
+	margin-top:-10px;
+}
+#pnlTTA .tblOrderConfirmForm.formPadBtm10 .trTTA .tdIsTTA {
+	padding-left:10px;
+	width:auto;
+}
+
+</style>
+
+
+ <script type="text/javascript">
+     var doNotTrack = '0';    
+     var dataLayer = {"analytics":{"aa":{"accounts":["tiffany-ps"]}},"events":{"pageView":true,"viewCart":false,"productView":false,"engravingAdded":false,"shippingInformation":false,"paymentInformation":true,"purchase":false,"removeFromCart":false,"addToCart":false,"updateCart":false,"createAccount":false,"verifyAccount":false,"login":false,"giftMessage":false,"formView":false,"siteInteraction":false,"addSavedItem":false,"deleteSavedItem":false,"dropHint":false,"giftMessageAdded":false,"logout":false,"newsletterSignup":false,"faqSearch":false,"diamondVisit":false,"diamondExpert":false,"ringView":false,"search":false,"statementView":false,"viewStoreEvent":false,"storeLocatorSearch":false,"share":false,"quickView":false,"addSavedRing":false,"dropRingHint":false,"suppressPage":false,"CICSetup":false,"CICStart":false,"CICStep":false,"CICReset":false,"CICComplete":false,"error":false,"addSentHint":false,"addReceivedHint":false,"cartFreeShipping":false,"requestStockNotification":false,"selectStore":false,"cartQuickView":false,"businessInfoRequest":false,"contactUs":false,"charmStart":false,"charmView":false,"charmSave":false,"personalize":false,"checkoutClick":false},"page":{"name":"Tiffany \u0026 Co. | ご注文内容の確認日本","site":{"ID":"jp","type":"desktop","environment":"ps2"},"language":"ja","url":"https://www.ps2.tiffany.co.jp/customer/checkout/orderconfirmation.aspx","hierarchy":["customer","checkout","orderconfirmation"],"template":"Checkout - OrderConfirmation - new 0317","showProdRecommendation":false,"server":"eps23"},"user":{"type":"Not logged in","ID":"4d24f1f2728d49b4ace089b374fa1a67","sessionID":"e89b8919bb904244a69042e03716f928"},"ecommerce":{"cartID":"110463","currency":"JPY"},"products":[{"sku":"60991332","name":"tiffany t two open horizontal bar pendant in 18k gold with diamonds.","categoryID":"287465","categoryName":"ネックレス＆ペンダント","price":"291600.00","quantity":"1","engraving":"0.00","isGroup":false,"mips":"18YDI T TWO OP EW PDT1618","masterCategoryName":"ジュエリー","isEngraveable":false,"isByoEligible":false,"motifEnabled":false,"engravingAdded":false}],"translated":{"page":{"name":"Tiffany \u0026 Co. | Order Confirmation | 日本","showProdRecommendation":false}}};  
+     var browserSessionID = '';
+     var sessionUserid = '4d24f1f2728d49b4ace089b374fa1a67';
+     try{
+         if(typeof(dataLayer) === "object" && dataLayer !== null){
+             var pgTitle = window.document.title;   
+             if(typeof(dataLayer.page) === "object" && dataLayer.page !== null){
+                 if(typeof(dataLayer.page.name) !== "undefined" && dataLayer.page.name === ""){
+                     dataLayer.page.name = pgTitle;
+                 }
+             }
+             if(typeof(dataLayer.user) === "object" && dataLayer.user !== null){
+                 if(typeof(dataLayer.user.sessionID) !== "undefined"){
+                     browserSessionID = dataLayer.user.sessionID;
+                 }             
+                 
+             }
+            
+         }
+     }     catch (err) { }
+
+     // Page Template for SOASTA
+    
+     var pageGroup = 'Checkout-OrderConfirmation';
+     var pageIdentifier  = '/Customer/Checkout/OrderConfirmation.aspx';
+     var secureHeader = 'true';
+
+  </script>
+  
+
+ <script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satelliteLib-ce1777e1bada4dc140449149df16d3e22d735b3b-staging.js.ダウンロード"></script><!-- リマーケティング タグの Google コード -->
+<!--------------------------------------------------
+リマーケティング タグは、個人を特定できる情報と関連付けることも、デリケートなカテゴリに属するページに設置することも許可されません。タグの設定方法については、こちらのページをご覧ください。
+http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+var jpProduct = _satellite.getVar('products') || [];
+var jpTemplate = (function(){
+    var page_template = _satellite.getVar('page_template').toLowerCase();
+    var template = page_template;
+	
+  	if(page_template == 'home')
+      	template = 'home';
+  	if(page_template == 'product landing page')
+      	template = 'searchresults';
+    if(dataLayer && dataLayer.events && dataLayer.events.productView == true)
+      	template = 'product';
+  	if(dataLayer && dataLayer.events && dataLayer.events.viewCart == true)
+      	template = 'cart';
+  	if(dataLayer && dataLayer.events && dataLayer.events.purchase == true)
+      	template = 'purchase';
+
+  	return template;
+})();
+
+var prodids = (function(){
+   var ids = [];
+   for(var p in jpProduct) {
+      var id = jpProduct[p].isGroup ? jpProduct[p].groupSku : jpProduct[p].sku;
+      ids.push(id.toString());
+   }
+   return ids;
+})();
+
+var google_tag_params = {
+    ecomm_prodid: prodids || '',
+    ecomm_pagetype: jpTemplate || '',
+    ecomm_totalvalue: dataLayer.products[0].price.replace(/\.00$/,'') || ''
+};
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+    var google_conversion_id = 940471535;
+    var google_custom_params = window.google_tag_params;
+    var google_conversion_label = "DwfDCOCL63kQ7-m5wAM"
+    var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/conversion.js.ダウンロード">
+</script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-56a7eec664746d73cc000315-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-57eaa23a64746d3cc100185c-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-57eaa23a64746d3cc100185d-staging.js.ダウンロード"></script><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/940471535/?random=1537864596122&amp;cv=9&amp;fst=1537864596122&amp;num=1&amp;label=DwfDCOCL63kQ7-m5wAM&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1029&amp;u_w=1829&amp;u_ah=1029&amp;u_aw=1829&amp;u_cd=24&amp;u_his=24&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;data=ecomm_prodid%3D60991332%3Becomm_pagetype%3Dcheckout%20-%20orderconfirmation%20-%20new%200317%3Becomm_totalvalue%3D291600&amp;sendb=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.ps2.tiffany.co.jp%2FCustomer%2FCheckout%2FOrderConfirmation.aspx&amp;ref=https%3A%2F%2Fwww.ps2.tiffany.co.jp%2FCustomer%2FCheckout%2FSendTo.aspx&amp;tiba=Tiffany%20%26%20Co.%20%7C%20%E3%81%94%E6%B3%A8%E6%96%87%E5%86%85%E5%AE%B9%E3%81%AE%E7%A2%BA%E8%AA%8D&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 931869036;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/conversion.js.ダウンロード"></script><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/931869036/?random=1537864596127&amp;cv=9&amp;fst=1537864596122&amp;num=2&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1029&amp;u_w=1829&amp;u_ah=1029&amp;u_aw=1829&amp;u_cd=24&amp;u_his=24&amp;u_tz=540&amp;u_java=false&amp;u_nplug=5&amp;u_nmime=7&amp;data=ecomm_prodid%3D60991332%3Becomm_pagetype%3Dcheckout%20-%20orderconfirmation%20-%20new%200317%3Becomm_totalvalue%3D291600&amp;sendb=1&amp;frm=0&amp;url=https%3A%2F%2Fwww.ps2.tiffany.co.jp%2FCustomer%2FCheckout%2FOrderConfirmation.aspx&amp;ref=https%3A%2F%2Fwww.ps2.tiffany.co.jp%2FCustomer%2FCheckout%2FSendTo.aspx&amp;tiba=Tiffany%20%26%20Co.%20%7C%20%E3%81%94%E6%B3%A8%E6%96%87%E5%86%85%E5%AE%B9%E3%81%AE%E7%A2%BA%E8%AA%8D&amp;rfmt=3&amp;fmt=4"></script><!-- YDN Code for your Target List -->
+<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+var yahoo_retargeting_id = 'NJQVLPWJO6';
+var yahoo_retargeting_label = '';
+var yahoo_retargeting_page_type = '';
+var yahoo_retargeting_items = [{item_id: '', category_id: '', price: '', quantity: ''}];
+/* ]]> */
+</script>
+<script type="text/javascript" language="javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/s_retargeting.js.ダウンロード"></script><script type="text/javascript">
+/* <![CDATA[ */
+var yahoo_ss_retargeting_id = 1000264836;
+var yahoo_sstag_custom_params = window.yahoo_sstag_params;
+var yahoo_ss_retargeting = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/conversion.js(1).ダウンロード"></script><script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/conversion_async.js.ダウンロード"></script><!-- Yahoo Code for your Target List -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var yahoo_ss_retargeting_id = 1000273994;
+var yahoo_sstag_custom_params = window.yahoo_sstag_params;
+var yahoo_ss_retargeting = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/conversion.js(1).ダウンロード"></script><script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/conversion_async.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-56055c7933633000140000c2-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-56783aaf64746d234a002925-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-57e99d7464746d3cd4000ae3-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-5ad10c1b64746d762f012fc2-staging.js.ダウンロード"></script><!-- Primary function library placed before the callback and Primary Code Block. -->
+<script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/p13n.js.ダウンロード"></script>
+<!-- This function will consume the JSON response object -->
+<script charset="utf-8" type="text/javascript">
+  if (typeof dataLayer == "object" && typeof dataLayer.page == "object" &&
+      dataLayer.page.showProdRecommendation && 
+      (pageIdentifier == "/Shopping/Item.aspx"  || 
+       pageIdentifier == "/Mobile/Shopping/Item.aspx")){
+  	RR.jsonCallback = function(){     
+			window.createProductRecommendationData(RR.data.JSON.placements);
+  	};
+}
+</script>
+
+<script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-56310df264746d6aa1002f1d-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/s-code-contents-7a8fa131fbb9285ec02578bb5ba3cfc97cc963c3-staging.js.ダウンロード"></script><script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-57a4792264746d2e3200111d-staging.js.ダウンロード"></script><link type="text/css" href="./Tiffany &amp; Co. _ ご注文内容の確認_files/jquery-ui-insightera-custom-1.9.6.css" rel="stylesheet"><script type="text/javascript" charset="UTF-8" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/p13n_generated.js.ダウンロード" async=""></script></head>
+<body onload="maintainScoll();" id="paymentPage" class="ja-JP mobile-site">
+	<form id="frmPost" name="frmPost" method="post" action="https://www.ps2.tiffany.co.jp/" autocomplete="false">
+	<input name="hdnCyberSourceRequestID_Popup" type="hidden" id="hdnCyberSourceRequestID_Popup">
+	<input name="hdnCyberSourceAcsUrl_Popup" type="hidden" id="hdnCyberSourceAcsUrl_Popup">
+	<input name="hdnCyberSourceTermUrl_Popup" type="hidden" id="hdnCyberSourceTermUrl_Popup">
+	<input name="hdnCyberSourcePayload_Popup" type="hidden" id="hdnCyberSourcePayload_Popup">
+	<input name="hdnIsFromOC" type="hidden" id="hdnIsFromOC">
+	<input name="hdnCyberSourceRealtimeBankRequestID_Popup" type="hidden" id="hdnCyberSourceRealtimeBankRequestID_Popup">
+	<input name="hdnCyberSourceRealtimeBankUrl_Popup" type="hidden" id="hdnCyberSourceRealtimeBankUrl_Popup">
+	</form>
+	<form name="frmOrderConfirm" method="post" action="https://www.ps2.tiffany.co.jp/Customer/Checkout/OrderConfirmation.aspx" id="frmOrderConfirm" onkeypress="return event.keyCode!=13" novalidate="novalidate">
+<div>
+<input type="hidden" name="isAjaxEnabled" id="isAjaxEnabled" value="False">
+<input type="hidden" name="areCookiesEnabled" id="areCookiesEnabled" value="True">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="SVmPqMtDdwSTeU18SPT6tyJ1OTontKLJ9//i1wZp1L6K2qVxCTxPpmsbLnrFbzXgPTMRJioCG4fTthFXstAOSKWIWcSBCRs+emhzws+QtyuGk7urMNPkt3Dh8oWqsj0dr1brbUDe6NUj63mLoYFcj/uI+ZT0a+j/VieZuAh0oE9mLlQQeha7CdKwlEqY2T0pkivKkMiJtY5ZCVR1p44w0ySH9Jq7lwU/MSwZmdVb9GJa4V1oZt/KCpru1vdjBTR1K2DqvIjSzDrQ0zfr2uJjyWIZrNfbNHP80l5hz/1jEtAqJsyaoBgr5AYh2+g5QYc+1vJpmVtkHalIxICu9jwbURsLGjSew/faH0Cn6ttuf4w3oZie4i0xtXpuDr+4vyf6ThEnDQgU3KU3pfjNHPWzeC2d8aKXrnTWQyX+s28XTMfo744gH+tGLx95wcTVHAxO6x1e+H6pxWqFNVOKW1JuHa8JhyP0MRFt+0krXX0cF2tKuK19ItEXJZ6L+Gbo5axIemE+7UEjNEwS9eXXxkn0iHar9rfZl6dvq3qzQoVN54L4xK+yBxBO3V/97zYXoCQCiPAQbhgkAGXrbT5icJAMHCv40Jw/8GW3iqVZlEaNOYXOS+9JAs0rLwF6hLy80VkXFPb91iZtA/XEgLanMcuHYHWAWUMAgzt6wW2P/jlc1niOeaATU87x2xohxhuUOzQagVvfGZHRdpil2DWueQg3OjmBqLk9yZLuS+QOnWH9mtgCjbdNHX5GDzPjgSzcOpqHzZcL6+Kd7V07JPdfgEpNb/K7l1Ihsm+00k5rK3sUb26cKzQN23LAQ1+PYHX8OM/rb3uEa8E5m0jp72bQ1irlyLI4/RLHQ+McRrhwowofjBeHcAd7LgM+VvC9g5ZBiARdZEt61er4YQDkMhcMUqb8cgkjT97DTh30EMxGwGZaH/jea/JNDDk8VTph0D+kU+fpwyxwxC2wGM7IsacUoAIyJsdAEA2IDyB1KNoFD1ttC+wRO4210rpjAcpXpBRxbOgb+Tc5rTsojiUAeMaRZnC6Dhm7VKrjxlgq+J/pM5qQpKjYzyHKS4bN3RIOzhsqBCMTgMq3ORCsYFM2M9QGMZ2etXEqh9RAOQ6N1VQ8Bg9ZcMCEI9y1UuFpBtOl7UJLpHe6sjxwIg==">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmOrderConfirm'];
+if (!theForm) {
+    theForm = document.frmOrderConfirm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Tiffany &amp; Co. _ ご注文内容の確認_files/WebResource.axd" type="text/javascript"></script>
+
+	<input name="hdProcessCreditCard" type="hidden" id="hdProcessCreditCard">
+	<input name="hdInvokeCompleteClick" type="hidden" id="hdInvokeCompleteClick">
+	<input name="hdnCyberSourceRequestID" type="hidden" id="hdnCyberSourceRequestID">
+	<input name="hdnCyberSourceAcsUrl" type="hidden" id="hdnCyberSourceAcsUrl">
+	<input name="hdnCyberSourceTermUrl" type="hidden" id="hdnCyberSourceTermUrl">
+	<input name="hdnCyberSourcePayload" type="hidden" id="hdnCyberSourcePayload">
+	<input name="hdnBankPayloadResponse" type="hidden" id="hdnBankPayloadResponse">
+	<input name="hdnMD" type="hidden" id="hdnMD">
+	<input name="hdnEnrollmentResponseFields" type="hidden" id="hdnEnrollmentResponseFields">
+	<input name="hdnCyberSourceRealtimeBankRequestID" type="hidden" id="hdnCyberSourceRealtimeBankRequestID">
+	<input name="hdnCyberSourceRealtimeBankUrl" type="hidden" id="hdnCyberSourceRealtimeBankUrl">
+	<input name="hdnCyberSourceRequestToken" type="hidden" id="hdnCyberSourceRequestToken">
+    
+	<input name="txtHiddenForAutoPostback" type="text" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;txtHiddenForAutoPostback\&#39;,\&#39;\&#39;)&#39;, 0)" onkeypress="if (WebForm_TextBoxKeyHandler(event) == false) return false;" id="txtHiddenForAutoPostback" style="display: none">
+	<div id="container" class="validationGroup">
+		<div id="header">
+			 
+    
+    <hr id="headerBlueBar">
+
+    <a href="https://www.ps2.tiffany.co.jp/customer/shoppingbag.aspx?" class="back-to-sb-link">
+        <span class="hideForMobile">&lt; ショッピングバッグ</span>
+        <span class="showForMobile">
+            <i class="icon-font" aria-hidden="true">empty_bag</i>
+            <span class="back-to-sb-link--count">1</span>
+        </span>
+    </a>
+
+	<div id="divLogoBG">		
+		<div id="divLogo"><a href="https://www.ps2.tiffany.co.jp/"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/logo.png"></a></div>
+        <div id="secureCheckout">チェックアウトに進む</div>
+    </div>
+
+    <div class="modal-popup">
+        <a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/OrderConfirmation.aspx#" class="close">×</a>
+        <div class="content">
+            <img class="loading" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/loading.gif">
+        </div>        
+    </div>	
+    <div id="gray-overlay"></div>
+
+
+		</div>
+		
+		<div id="mainContent">
+
+            <h1 class="visually-hidden">お支払い方法</h1>
+
+            <div class="breadcrumbs flex-block justify-center flex-shrink dont-stack">
+                <div class="flex-item breadcrumbs__step breadcrumbs__step--active">
+                    <a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/SendTo.aspx?edit=1"><span class="breadcrumbs__circle">1</span> <span class="visually-hidden">Previous Step:</span> 配送</a>
+                </div>            
+                <div class="flex-item breadcrumbs__step breadcrumbs__step--active breadcrumbs__step--current">
+                    <span class="breadcrumbs__circle">2</span> <span class="visually-hidden">Current Step:</span> お支払い方法
+                </div>            
+            </div>
+
+            <hr>
+
+			<div id="divGenPage" class="orderconfirmation">
+				
+				<div id="divPageTitle">                  
+
+					<div>
+								<div id="pnlOrderConfirmInstuctions" class="chkoutInstructions">
+	
+									
+									<p>ご注文商品の数量を変更する際は、画面上部のリンクよりショッピングバッグのページに戻り、変更してください。</p>
+								
+</div>
+								
+								
+					</div>
+				</div>
+                <div id="errorMain" class="erase"><p class="error">* エラーメッセージを確認し、正しい内容を入力してください </p></div>
+				<div class="clear"></div>
+				
+				<div class="shopping-bag-container">
+				    <div class="bag-left">
+                        <div class="bag-left-content">
+					        <div id="mobileOrderSummary"></div>
+					        <div id="pnlPageContent">
+	
+						     
+						        
+						        <a name="paymentInfo"></a>
+						        <div>
+							        
+							            
+                                             
+                                            <fieldset class="input-group">
+                                                <legend class="visually-hidden">お支払いについて</legend>
+
+                                                <label>                            
+								                    <input id="chkPaymentMethodCreditCard" type="radio" name="paymentMethod" value="creditcard" checked="checked" onclick="togglePaymentMethods();clearInfo(&#39;egc&#39;);clearInfo(&#39;cc&#39;);updateDaibikiInOrderSummary(&#39;creditcard&#39;);">
+										            <span></span>
+                                                    クレジットカード
+                                                </label>
+                                              
+									            
+                                                    <br>
+                                                    <label>
+										                <input id="chkPaymentMethodCOD" type="radio" name="paymentMethod" value="cod" onclick="togglePaymentMethods();clearInfo(&#39;cc&#39;);clearInfo(&#39;egc&#39;);updateDaibikiInOrderSummary(&#39;cod&#39;);">
+                                                        <span></span>
+											            代金引換 － 代引き手数料 (¥1,080)
+                                                        <a href="https://www.ps2.tiffany.co.jp/Service/FaqOverlay.aspx?FAQCode=cashondelivery&amp;redesign=true" class="avenir type-cta jq-open-modal" id="chkPaymentMethodCODInfo"><i class="icon-font" aria-hidden="true">question</i></a>
+												        <div id="CODAdditionalText" class="erase" style="display: block;">
+                                                            <p><strong>代金引換が選択されました。</strong></p>
+											                <p>代金引換の場合、合計金額に応じた手数料が必要となります。代金引換のご利用上限額は税込み30万円未満となります。<br>なお、ご請求先とお届け先が異なる場合は、代金引換をお選びいただけませんのでご了承ください。<br></p>
+												        </div>
+												   </label>
+									            
+                                            </fieldset>
+
+                                            <hr>
+
+                                        
+							        
+						        </div>
+						        
+						        <div>
+                            
+                               
+							        
+							       
+								    
+								    <div id="divCreditCardPayment" class="inputFields" visible="true" style="display: block;">
+									    
+									    <h2 class="type-h5"></h2>	
+
+                                        <p class="credit-card--bal-due" style="display: none;">
+                                            Please enter credit card for the remaining balance of <span class="gift-card--bal-due">¥292,600</span>
+                                        </p>			
+                                            					
+									    
+                                        <div class="inputCol">
+                                            <div class="credit-card-logos">
+                                                <span id="visaLogo" data-ddl-val="VISA" class="ccLogo ccLogo--visible"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-visa.png" alt=""></span> 
+                                                <span id="amexLogo" data-ddl-val="AMEX" class="ccLogo ccLogo--visible"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-amex.png" alt=""></span>
+										        <span id="mastercardLogo" data-ddl-val="MC" class="ccLogo ccLogo--visible"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-mastercard.png" alt=""></span>									        
+										        <span id="discoverLogo" data-ddl-val="NOVS" class="ccLogo"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-discover.png" alt=""></span>
+										        <span id="jcbLogo" data-ddl-val="JCB" class="ccLogo ccLogo--visible"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-jcb.png" alt=""></span>
+										        <span id="tcoLogo" data-ddl-val="TCO" class="ccLogo"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-tco.png" alt=""></span>
+										        <span id="maestroLogo" data-ddl-val="MA" class="ccLogo"><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/cc-maestro.png" alt=""></span>	
+                                            </div>
+
+										    <label for="txtCreditCardNumber" class="tdLabel">
+											    クレジットカードの番号（半角数字）</label>
+										    <input name="txtCreditCardNumber" maxlength="22" id="txtCreditCardNumber" class="formText186 input--with-icon" type="tel" autocomplete="off" placeholder="クレジットカードの番号（半角数字）" aria-required="true">
+                                            <i class="icon-font">lock</i>
+                                            <div id="pnlCreditCardNumberExample" class="divSample">
+		
+                                                (例：1234567890123456)
+											
+	</div>
+									    </div>
+									    
+									    <div class="infoCol">
+										    <span class="moreInfo overflow">
+											    ご利用いただけるカード：Visa, Mastercard, American Express, JCB</span>
+									    </div>
+									    
+                                        <div class="inputCol" style="display: none;">
+                                            <label for="ddlTenderTypes" class="tdLabel">クレジットカードの種類</label>	
+                                            <select name="ddlTenderTypes" id="ddlTenderTypes" class="formText186" aria-required="true">
+		<option selected="selected" value="">クレジットカードの種類</option>
+		<option value="VISA">Visa</option>
+		<option value="MC">Master Card</option>
+		<option value="AMEX">American Express</option>
+		<option value="JCB">JCB</option>
+
+	</select>											
+									    </div>							
+									    
+
+                                        <div class="flex-block no-gutters dont-stack">
+									        <div id="pnlExpirationDate" class="flex-item col-6">
+		
+										        <div id="trExpirationDate" class="inputCol">
+
+                                                        <input name="txtCreditCardExpiration" maxlength="5" id="txtCreditCardExpiration" type="tel" size="5" autocomplete="off" placeholder="月 / 年" aria-required="true">
+
+										        </div>
+										        <div class="infoCol"></div>
+									        
+	</div>
+                                            <div id="pnlCardValidationCode" class="flex-item col-6" style="display: none;">
+		
+										        
+										        <div class="inputCol">
+											        <label for="txtCardValidationCode">
+												        セキュリティーコード</label>
+											        <input name="txtCardValidationCode" maxlength="4" id="txtCardValidationCode" class="input--with-icon" type="tel" autocomplete="off" placeholder="セキュリティーコード" disabled="disabled" aria-required="true">
+											        <a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/AboutCardValidation.aspx?showAmex=true&amp;showNonAmex=true&amp;redesign=true" class="jq-open-modal" data-size="small" data-height="600px"><i class="icon-font">question</i></a>
+										        </div>
+										        <div class="infoCol">
+										        </div>
+										        
+	</div>
+                                        </div>
+									        
+									    
+									    
+										    
+									    
+                                        <hr id="minorhr" class="minor">
+								    </div>
+
+                                    
+							        
+						        </div>
+
+						        
+						        
+						        <div id="divBillingInfo" class="inputFields">
+							        <h2 class="type-h5">ご請求先</h2> 
+							        <div id="pnlChkShipToBill">
+		
+								        
+								        <div id="divchkboxGRP" class="inputCol checkbox input-group">
+                                            <label>
+									            <input id="chkBillToSameAsShipTo" type="checkbox" name="chkBillToSameAsShipTo" checked="checked">
+									            <span></span>
+										        お届け先とご請求先が同じ
+                                            </label>
+								        </div>
+								        <div class="clear"></div>
+							        
+	</div>
+							        
+							        <div id="billingSameAsShipping" class="fullMultilineAddress" style="display: none;"> ティファニー テスト<br>100-0005<br>東京都 千代田区 <br> 丸の内2-1-1<br></div>
+							        <div id="billingInfoRegistered" style="display: none;">
+								        
+                                    </div>
+
+                                    <div id="billingInfoGuest">                                        
+							            
+
+<script>
+
+$(document).ready(function(){
+
+	addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtKanjiLastName", rules: {required: true, messages:{required: "* 姓を入力してください。<br>"}}});
+	addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtKanjiFirstName", rules: {required: true, messages:{required: "* 名を入力してください。"}}});
+	addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtAddress", rules: {required: true, messages:{required: "* 町村番地を入力してください。"}}});
+	addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtZipCode", rules: {required: true, minlength: 3, maxlength: 3, number: true, messages:{required: "* 郵便番号を半角で入力してください。", minlength: "* 郵便番号を半角で入力してください。", number: "* 郵便番号を半角で入力してください。"}}});
+	addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtZipCode2", rules: {required: true, minlength: 4, maxlength: 4, number: true, messages:{required: "* 郵便番号を半角で入力してください。", minlength: "* 郵便番号を半角で入力してください。", number: "* 郵便番号を半角で入力してください。"}}});	
+	addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtCity", rules: {required: true, messages:{required: "* 市区郡を入力してください。"}}});
+    addControlValidation({ fieldName: "ShippingAddressInputCtl$ctl00$ddlPrefecture", rules: { required: true, messages: { required: "* 都道府県を選択してください。" } } });
+    addControlValidation({fieldName : "ShippingAddressInputCtl$ctl00$txtDaytimeTelephone0", rules: {required: true, minlength: 10, maxlength: 12, digits: true, messages:{required: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。",minlength: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", digits: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。"}}});
+
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtKanjiLastName", rules: {required: true, messages:{required: "* 姓を入力してください。<br>"}}});
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtKanjiFirstName", rules: {required: true, messages:{required: "* 名を入力してください。"}}});
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtAddress", rules: {required: true, messages:{required: "* 町村番地を入力してください。"}}});
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtZipCode", rules: {required: true, minlength: 3, maxlength: 3, number: true, messages:{required: "* 郵便番号を半角で入力してください。", minlength: "* 郵便番号を半角で入力してください。", number: "* 郵便番号を半角で入力してください。"}}});
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtZipCode2", rules: {required: true, minlength: 4, maxlength: 4, number: true, messages:{required: "* 郵便番号を半角で入力してください。", minlength: "* 郵便番号を半角で入力してください。", number: "* 郵便番号を半角で入力してください。"}}});	
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtCity", rules: {required: true, messages:{required: "* 市区郡を入力してください。"}}});
+    addControlValidation({ fieldName: "BillingAddressInputCtl$ctl00$ddlPrefecture", rules: { required: true, messages: { required: "* 都道府県を選択してください。" } } });
+
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtDaytimeTelephone0", rules: {required: true, minlength: 10, maxlength: 12, digits: true, messages:{required: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", minlength: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", digits: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。"}}});
+//	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtDaytimeTelephone1", rules: {required: true, minlength: 1, maxlength: 4, digits: true, messages:{required: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", minlength: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", digits: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。"}}});	
+//	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtDaytimeTelephone2", rules: {required: true, minlength: 1, maxlength: 4, digits: true, messages:{required: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", minlength: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。", digits: "* 日本国内の電話番号を半角数字で入力してください（ハイフン不要）。"}}});	
+
+    addControlValidation({ fieldName: "BillingAddressInputCtl$ctl00$txtEveningTelephone0", rules: { isNumberOrEmpty: true, minlength: 10, maxlength: 12, messages: { isNumberOrEmpty: "* 日本国内の携帯電話番号を半角で入力してください。", minlength: "* 日本国内の携帯電話番号を半角で入力してください。" } } });
+//	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtEveningTelephone1", rules: {isNumberOrEmpty: true, messages:{isNumberOrEmpty: "* 日本国内の携帯電話番号を半角で入力してください。"}}});	
+//	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtEveningTelephone2", rules: {isNumberOrEmpty: true, messages:{isNumberOrEmpty: "* 日本国内の携帯電話番号を半角で入力してください。"}}});	
+
+
+	addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtEmail", rules: {required: true, email: true, messages:{required: "* メールアドレスを半角で入力してください。", email: "* 有効なメールアドレスをご入力ください。"}}});
+	//addControlValidation({fieldName : "BillingAddressInputCtl$ctl00$txtEmailRetype", rules: {required: true, email: true, equalTo: "#BillingAddressInputCtl_ctl00_txtEmail", messages:{required: "* メールアドレスを確認のため再入力してください。", email: "* 有効なメールアドレスをご入力ください。", equalTo: "* 入力されたメールアドレスが一致しません。お手数ですが、もう一度入力してください。"}}});
+
+    addControlValidation({ fieldName: "ShippingAddressInputCtl$ctl00$chkGender", rules: { required: true, messages: { required: "* 性別を選択してください。" } } });
+    addControlValidation({ fieldName: "BillingAddressInputCtl$ctl00$chkGender", rules: { required: true, messages: { required: "* 性別を選択してください。" } } });
+
+
+	$('form').on('focus', 'input[type=number]', function (e) {
+	    $(this).on('mousewheel.disableScroll', function (e) {
+	        e.preventDefault();
+	    });
+	});
+	$('form').on('blur', 'input[type=number]', function (e) {
+	    $(this).off('mousewheel.disableScroll');
+	});	
+});
+
+</script>
+<style>
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+</style>
+    
+    
+    
+
+<div id="guestAddressFields">
+    <div id="BillingAddressInputCtl_ctl00_NonPhoneAddressFields" class="addressSection" style="display: block;">
+  
+  <div class="inputCol">
+      <label class="lblTxt3">お名前 (漢字) </label>
+  </div>
+  <div class="infoCol"></div>
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtKanjiLastName" id="BillingAddressInputCtl_ctl00_lblKanjiLName">姓 (漢字)</label>
+    <input name="BillingAddressInputCtl$ctl00$txtKanjiLastName" type="text" maxlength="10" id="BillingAddressInputCtl_ctl00_txtKanjiLastName" placeholder="姓 (漢字)" size="5" disabled="" aria-required="true">
+  </div>
+  <div class="infoCol"></div>
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtKanjiFirstName" id="BillingAddressInputCtl_ctl00_lblKanjiFName">名 (漢字)</label>
+    <input name="BillingAddressInputCtl$ctl00$txtKanjiFirstName" type="text" maxlength="8" id="BillingAddressInputCtl_ctl00_txtKanjiFirstName" placeholder="名 (漢字)" size="15" disabled="" aria-required="true">
+	</div>
+	<div class="infoCol"></div>
+  
+  <div class="inputCol">
+    <label class="lblTxt3">フリガナ　<span style="white-space:nowrap">(全角カタカナ）</span> </label>
+  </div>
+  <div class="infoCol"></div>
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtKanaLastName" id="BillingAddressInputCtl_ctl00_lblKanaLName">姓 (全角カタカナ)</label>
+    <input name="BillingAddressInputCtl$ctl00$txtKanaLastName" type="text" maxlength="20" id="BillingAddressInputCtl_ctl00_txtKanaLastName" placeholder="姓 (全角カタカナ)" size="15" disabled="">
+  </div>
+  <div class="infoCol"></div>
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtKanaFirstName" id="BillingAddressInputCtl_ctl00_lblKanaFName">名 (全角カタカナ)</label>
+    <input name="BillingAddressInputCtl$ctl00$txtKanaFirstName" type="text" maxlength="14" id="BillingAddressInputCtl_ctl00_txtKanaFirstName" placeholder="名 (全角カタカナ)" size="15" disabled="">
+  </div>
+  <div class="infoCol"></div>
+    
+  
+  <div class="inputCol radio">
+    <fieldset class="input-group">
+        <legend>性別</legend>
+        <label>
+            <input id="BillingAddressInputCtl_ctl00_chkGender_0" type="radio" name="BillingAddressInputCtl$ctl00$chkGender" value="male" disabled="" aria-required="true">
+            <span></span>
+            男性
+        </label>
+        <label>
+            <input id="BillingAddressInputCtl_ctl00_chkGender_1" type="radio" name="BillingAddressInputCtl$ctl00$chkGender" value="female" disabled="">
+            <span></span>
+            女性
+        </label>
+        <input type="hidden" name="BillingAddressInputCtl$ctl00$txtGenderError" id="BillingAddressInputCtl_ctl00_txtGenderError">
+    </fieldset>
+  </div>
+  <div class="infoCol"></div>
+  
+  
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtZipCode" id="BillingAddressInputCtl_ctl00_lblZipCode">郵便番号 (半角数字)
+        </label>
+       <div class="inputCol" id="zipInputWrapper">
+    <input name="BillingAddressInputCtl$ctl00$txtZipCode" maxlength="3" id="BillingAddressInputCtl_ctl00_txtZipCode" class="shortInput_Zip" type="tel" size="3" placeholder="郵便番号" disabled="" aria-required="true">
+    <input name="BillingAddressInputCtl$ctl00$txtZipCode2" maxlength="4" id="BillingAddressInputCtl_ctl00_txtZipCode2" class="shortInput_Zip2" type="tel" size="4" placeholder="郵便番号" disabled="" aria-required="true">
+	</div>
+  </div>
+	<div class="infoCol"></div>
+
+  <div id="BillingAddressInputCtl_ctl00_tblPrefecture" class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_ddlPrefecture" id="BillingAddressInputCtl_ctl00_lblDdlPrefecture" class="lblTxt3">都道府県</label>
+        <select name="BillingAddressInputCtl$ctl00$ddlPrefecture" id="BillingAddressInputCtl_ctl00_ddlPrefecture" lang="ja" disabled="" class="select--has-value" aria-required="true">
+		<option value="">都道府県</option>
+		<option value="北海道">北海道</option>
+		<option value="青森県">青森県</option>
+		<option value="岩手県">岩手県</option>
+		<option value="宮城県">宮城県</option>
+		<option value="秋田県">秋田県</option>
+		<option value="山形県">山形県</option>
+		<option value="福島県">福島県</option>
+		<option value="茨城県">茨城県</option>
+		<option value="栃木県">栃木県</option>
+		<option value="群馬県">群馬県</option>
+		<option value="埼玉県">埼玉県</option>
+		<option value="千葉県">千葉県</option>
+		<option value="東京都">東京都</option>
+		<option value="神奈川県">神奈川県</option>
+		<option value="新潟県">新潟県</option>
+		<option value="富山県">富山県</option>
+		<option value="石川県">石川県</option>
+		<option value="福井県">福井県</option>
+		<option value="山梨県">山梨県</option>
+		<option value="長野県">長野県</option>
+		<option value="岐阜県">岐阜県</option>
+		<option value="静岡県">静岡県</option>
+		<option value="愛知県">愛知県</option>
+		<option value="三重県">三重県</option>
+		<option value="滋賀県">滋賀県</option>
+		<option value="京都府">京都府</option>
+		<option value="大阪府">大阪府</option>
+		<option value="兵庫県">兵庫県</option>
+		<option value="奈良県">奈良県</option>
+		<option value="和歌山県">和歌山県</option>
+		<option value="鳥取県">鳥取県</option>
+		<option value="島根県">島根県</option>
+		<option value="岡山県">岡山県</option>
+		<option value="広島県">広島県</option>
+		<option value="山口県">山口県</option>
+		<option value="徳島県">徳島県</option>
+		<option value="香川県">香川県</option>
+		<option value="愛媛県">愛媛県</option>
+		<option value="高知県">高知県</option>
+		<option value="福岡県">福岡県</option>
+		<option value="佐賀県">佐賀県</option>
+		<option value="長崎県">長崎県</option>
+		<option value="熊本県">熊本県</option>
+		<option value="大分県">大分県</option>
+		<option value="宮崎県">宮崎県</option>
+		<option value="鹿児島県">鹿児島県</option>
+		<option value="沖縄県">沖縄県</option>
+
+	</select>   
+  </div>
+	<div class="infoCol hasSelection"></div>
+  
+  
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtCity" id="BillingAddressInputCtl_ctl00_lblCity">市区郡</label>
+    <input name="BillingAddressInputCtl$ctl00$txtCity" type="text" maxlength="11" id="BillingAddressInputCtl_ctl00_txtCity" size="25" placeholder="市区郡" disabled="" aria-required="true">
+	<div>(例：千代田区/横浜市)</div>
+  </div>
+  <div class="infoCol"></div>
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtAddress" id="BillingAddressInputCtl_ctl00_lblAdd1">町村番地</label>
+    <input name="BillingAddressInputCtl$ctl00$txtAddress" type="text" maxlength="16" id="BillingAddressInputCtl_ctl00_txtAddress" size="25" placeholder="町村番地" disabled="" aria-required="true">
+	<div>(例：丸の内2-2-1)</div>
+  </div>
+  <div class="infoCol"></div>
+  
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtAddress2" id="BillingAddressInputCtl_ctl00_lblAdd2">アパート・マンション名、部屋番号、法人・団体名　等</label>
+    <input name="BillingAddressInputCtl$ctl00$txtAddress2" type="text" maxlength="16" id="BillingAddressInputCtl_ctl00_txtAddress2" size="25" placeholder="アパート・マンション名、部屋番号、法人・団体名　等" disabled="">
+  </div>
+  <div class="infoCol"></div>           
+  </div>
+  <div id="BillingAddressInputCtl_ctl00_PhoneAddressFields">     
+  
+  <div id="phoneOnlyFields">
+
+      <hr class="minor">
+    <h3 class="type-h5">連絡先</h3>  
+
+  <div class="inputCol">
+    <label for="BillingAddressInputCtl_ctl00_txtDaytimeTelephone0" id="BillingAddressInputCtl_ctl00_lblTele0">日中ご連絡先&nbsp;電話番号 (半角数字)
+         </label>
+    <input name="BillingAddressInputCtl$ctl00$txtDaytimeTelephone0" maxlength="12" id="BillingAddressInputCtl_ctl00_txtDaytimeTelephone0" type="tel" size="12" placeholder="電話番号" disabled="" aria-required="true">
+	<div>(例：0120488712)</div>
+	</div>
+	<div class="infoCol">
+		<span class="moreInfo">ハイフン不要
+		<br>ご注文に関してお問い合わせをさせていただく場合がありますので、電話番号やメールアドレスは必ずご記入ください。</span>
+	</div>
+  
+    <div class="inputCol">
+    	<label for="BillingAddressInputCtl_ctl00_txtEveningTelephone0" id="BillingAddressInputCtl_ctl00_lblTeleEvening0">携帯電話番号
+            <span> (任意)</span>    
+        </label><input name="BillingAddressInputCtl$ctl00$txtEveningTelephone0" type="text" maxlength="12" id="BillingAddressInputCtl_ctl00_txtEveningTelephone0" size="12" placeholder="携帯電話番号">
+			<div>(例： 0120488712)</div>
+		</div>
+		<div class="infoCol"></div>
+  
+  </div>
+	
+    <div class="inputCol">
+      <label for="BillingAddressInputCtl_ctl00_txtEmail" id="BillingAddressInputCtl_ctl00_lblEmail">Eメール アドレス</label><input name="BillingAddressInputCtl$ctl00$txtEmail" type="text" maxlength="70" id="BillingAddressInputCtl_ctl00_txtEmail" size="35" placeholder="Eメール アドレス" aria-required="true">
+		</div>
+		<div class="infoCol"><span class="moreInfo" id="emailInfo">一文字目と@直前が半角英数字のメールアドレスをご登録いただけます。</span><span id="confirmEmailAddressMsg" class="moreInfo overflow erase">注文関連のメールは【　<span id="confirmEmailAddress"></span>　】に送られます。</span></div>
+    
+    
+    
+</div>    
+</div>
+
+						            </div>
+						        </div>
+						        
+                                    						        
+						        <div class="inputFields">							
+						            <div id="divSaveInformation" class="inputCol checkbox input-group">
+                                        <label for="chkMakeAccount" class="labelCheckbox">
+								            <input name="chkMakeAccount" type="checkbox" id="chkMakeAccount" style="float: left" value="no">
+                                            <span></span>
+                                            アカウントを作成し、情報を保存する
+                                        </label>
+						            </div>
+							        <div id="divEmailSubscribe" class="inputCol checkbox input-group">
+								        <label for="chkSubscribeEmail" class="labelCheckbox">
+                                            <input name="chkSubscribeEmail" type="checkbox" id="chkSubscribeEmail" style="float: left" value="no" checked="checked">
+                                            <span></span>
+                                            ティファニーからの会員様限定メールを受け取る
+								        </label>
+							        </div>
+							        <div id="divMobileEmailSubscribe" class="inputCol checkbox input-group" style="display: none;">
+								        <label for="chkSubscribeMobileEmail" class="labelCheckbox">
+                                            <input name="chkSubscribeMobileEmail" type="checkbox" id="chkSubscribeMobileEmail" style="float: left" value="no" onclick="toggleCheckbox(this,&#39;divMobileEmailSubscribeForm&#39;)">
+                                            <span></span>
+                                            スマートフォンアドレス宛にティファニーからのニュースレターやイベント情報を希望する。
+								        </label>
+							        </div>
+							        <div id="divMobileEmailSubscribeForm" class="inputCol" style="clear: both; display: none">
+								        
+								        <label class="lblTxt" for="txtMobileEmailAddress">
+									        スマートフォンメールアドレス（半角英数字のみ）</label>
+								        <input name="txtMobileEmailAddress" type="email" maxlength="70" id="txtMobileEmailAddress" class="formText237 english" size="25" placeholder="スマートフォンメールアドレス（半角英数字のみ）">
+                                        <div class="tdErrorMessage" id="tdMobileEmailError">
+									        
+                                        </div>
+							        </div>
+                                    <script language="javascript">
+								        if (document.getElementById('chkSubscribeMobileEmail') && document.getElementById('chkSubscribeMobileEmail').checked)
+								        {
+									        show('divMobileEmailSubscribeForm');
+								        }
+							        </script>
+							        <div id="customerPrivacyPolicy" style="display: none;">
+							            <div class="inputCol checkbox input-group">
+							                
+<div>下記の「個人情報の取り扱い」を必ずお読みいただき、ご同意の上、アカウントを作成ください。</div>
+<span class="form-spacer-sm"></span>
+
+<p class="input-group">
+    <label>
+        <input name="CustomerPrivacyPolicy$ctl00$chkGppAccepted" type="checkbox" id="CustomerPrivacyPolicy_ctl00_chkGppAccepted" aria-required="true">
+        <span></span>						  
+        <small class="checkboxtxt">個人情報の取り扱いに同意する.</small>
+    </label>
+</p>
+
+<div class="readonlybox"><textarea readonly="readonly">この開示は、インターネットを介し、お客様から提供された個人情報をどのように当社が保護し、取り扱うかを説明するものです。
+
+1.当社が管理・使用する個人情報
+下記に記載された個人情報の中で、店舗で収集、およびインターネットで当社に提供された個人情報のみを当社のデータベースに登録します。ただし、購入情報と訪問情報は、お客様のために当社の販売員、またはデパートの販売員が記入します。
+名前、性別、電話番号、携帯電話番号、出生日、住所、メールアドレス、職業、婚姻区分、結婚記念日、お客様の婚約者に関する情報 (名前、性別、電話番号、携帯電話番号、出生日、住所、メールアドレス、職業) (お客様の婚約者に関する情報は、お客様に添付した情報としてのみ管理されます)、引っ越し予定日 (または情報が変更する予定の月)、新しい姓、新住所、新住所の電話番号、購入予定日、婚約指輪が必要なおおよその日付、結婚指輪が必要なおおよその日付、購入情報 (購入日、お客様が製品をお買い上げになった店舗、購入製品、購入した品数、購入価格、購入の目的、支払方法、お客様の担当員名)、訪問情報 (お客様が訪問した店舗、お客様が情報を提供した日付、お客様の担当員、お客様がお探しになった製品に関する情報)。
+お客様カードに下記の情報が含まれている場合は、個人情報は当社のデータベースに登録されない場合があります。
+(i) 会社、または組織の名前で登録された情報
+(ii) 勤務先の住所・電話番号で登録された情報
+(iii) お客様が提供された情報を判読できない場合
+さらに、お客様が提供した情報に間違いがある場合、またはお客様が新住所に引っ越すため、またはその他の理由でお客様が提供した情報と事実に食い違いがあると判明した場合、当社の独断でお客様の個人情報の全部または一部を削除する場合があります。
+
+2.お客様の個人情報の使用目的
+お客様の個人情報を下記の目的において使用します。
+(i) 当社店舗で、製品に関するカウンセリングサービス、コンサルティングサービス、アフターサービスを提供。
+(ii) 当社製品に関するお客様の購入記録を管理
+(iii) お客様に提供するサービスレベル改善などの目的で、当社製品に関する市場調査を実施、施策を立案、製品を開発、生産、合意、販売戦略を計画。
+(iv) 当社が保有するお客様の情報に関してお客様と連絡を取る。
+(v) 当社の製品、様々なイベントに関しお客様にダイレクトメール、ダイレクトEメール (委託会社によるメール送信を含む)、その他の情報送信を行う、アンケート調査を実施する、必要事項をお客様に連絡する。
+(vi) お客様の依頼により、お届先に製品を発送する。 
+(vii) お客様からのご意見、ご要望について、確認および回答する。
+
+3.お客様の個人情報を保護する方法
+(i) 当社に適用される個人情報の保護に関する法律、および様々なガイドラインに従い、当社保有のデータベースに関し必要なセキュリティ対策を行います。
+(ii) 当社は、従業員に対し、個人情報の保護に関する研修を定期的に実施し、お客様の個人情報を厳重に管理します。
+
+4.お客様の個人情報の保有期間
+「8. 訂正/削除/開示/ダイレクトメール送信の一時停止などの依頼に関する連絡情報」の規定に従ったお客様本人による依頼に加え、当社がお客様カードで提供された個人情報の削除が必要、または適切と判断した場合は、当社規定の手順を完了後、適切な範囲でそれを削除することができます。
+
+5.お客様の個人情報の共同使用
+(i) お客様カードに記載された個人情報とインターネットを介して収集された個人情報は、お客様が製品を購入したティファニーブティックが所在するデパートと共同で使用されます。デパートがお客様の個人情報を使用する目的は、製品、デパートのサービスに関しては、本書で指定された目的と同じです。デパートは、当社と同じレベルでお客様の個人情報を保護、管理します。ティファニー・アンド・カンパニー・ジャパン・インクが、共同で使用されるお客様の個人情報の管理に関して責任を負います。
+(ii) 当社は、本書に記載された目的においてお客様の個人情報をティファニー関連会社 [全ティファニー関連会社のリストがwww.tiffany.com/privacypolicyに掲載されています] と共同で使用する場合もあります。ティファニー・アンド・カンパニー・ジャパン・インクが、共同で使用されるお客様の個人情報の管理に関して責任を負います。
+
+6.外部委託
+当社は、お客様の個人情報のデータ入力、当社製品の配送、修理、その他のサービスのために必要な範囲で、当社が保有するお客様の個人情報をサードパーティーに委託します。この場合、当社は個人情報の保護、管理に関し、委託会社と契約を締結し、委託会社が確実に個人情報を当社と同じレベルで保護、管理するよう監視します。
+
+7.サードパーティーへの開示
+当社は、個人情報の保護に関する法律 (2003年第57条) で許可されている開示 (例、諸官庁または裁判所によって発行された命令・嘱託、弁理士法第23条2項に従い弁護士協会の照会に回答、情報の使用目的に必要な範囲内でサードパーティーに個人情報の取り扱いを委託) を除き、お客様から事前の同意を得ないでお客様の個人情報をいかなるサードパーティーにも開示しません。
+
+8.訂正/削除/開示/ダイレクトメール送信の一時停止などの要求に関する連絡情報
+(お客様のご要求は、(i) または (ii) にて受理されます)
+(i) お客様が製品を購入したティファニーブティック 
+(ii) カスタマサービス (フリーダイヤル): 0120-488-712
+いずれの場合も、お客様ご本人が記入した変更/開示依頼のフォームを介してご要求を受理します。
+開示のご要求に関しては、当社規定の手順にのっとり、適切な範囲で対処し、お客様本人に書面でその趣旨を通達します。
+
+「個人情報の取り扱い」と題した本書のすべてまたは一部は、変更する場合があります。
+日本に関する最新情報は、ティファニーのWebサイト (www.tiffany.co.jp/Service/policy_vis.aspx?isMenu=1&amp;) でご確認ください。.</textarea></div>
+
+
+							            </div>
+							            <div class="infoCol wrappingError"></div>
+							        </div>
+						        </div>
+                                <div class="clear"></div>
+
+                                 
+							        
+						        
+						        
+						        
+						        <hr class="minor">
+						        
+						        <div id="divGiftCardPaymentButton" visible="true" class="checkoutCntrlBtn_Btm" style="display:none">
+							        
+							        <input type="submit" name="btnApplyGiftCard" value="購入を完了する" onclick="performPostBack(event);showOrHide();" id="btnApplyGiftCard" class="btn btn_majorAction">
+							        
+							        <div id="pendingApplyOrder" style="left: 0px; visibility: hidden; width: 110px; position: absolute;
+								        top: 0px; height: 40px">
+								        <img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/apply_to_order_disabled.gif" id="btnApplyGiftCardDisabled" alt="Processing" title="Processing" width="117" height="23">
+							        </div>
+						        </div>						
+                                <div id="divCODPaymentButton" class="show checkoutCntrlBtn_Btm" style="display: none;">
+							        <div id="divCODCompletePurchase">
+								        <input type="submit" name="btnCODComplete" value="購入を完了する" onclick="performPostBack(event);showOrHide();" id="btnCODComplete" class="btn btn_majorAction">
+							        </div>
+						        </div>
+                                
+						        <div id="divCheckoutActionSection">
+							        
+							        <div id="divCreditCardPaymentButton" class="show checkoutCntrlBtn_Btm" style="display: block;">
+								        <div id="divCompletePurchase">
+									        <input type="submit" name="btnComplete" value="購入を完了する" onclick="$(&#39;.error--invalid-gc&#39;).hide();performPostBack(event);showOrHide();javascript:showOrHide();" id="btnComplete" class="btn btn_majorAction mouseover">
+								        </div>
+								        <div id="pending" style="left: 0px; visibility: hidden; position: absolute; top: 0px;" onclick="chkOrderAction();">
+									        <img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/complete_purchase_disabled.gif" id="btnCompleteDisabled" alt="現在処理をしています" title="現在処理をしています" width="107" height="23">
+								        </div>
+							        </div>
+							        <div id="checkoutAdditionalInfo">
+								        <div id="divCreditCardCharged">
+									        商品発送後にクレジットカードに課金されます。
+								        </div>
+								        <div id="divReturnPolicy">
+									        <ul class="blueBulletList">
+										        <li>
+											        <a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/AboutReturnPolicy.aspx?redesign=true" class="jq-open-modal avenir type-cta" data-size="small">返品について</a>
+										        </li>
+									        </ul>
+								        </div>
+                                        
+							        </div>
+						        </div>
+						        
+</div>
+				        </div>
+                    </div>
+				    
+				    <div class="bag-right">
+                        <div class="bag-right-content fixed bottomed">
+                             <div class="banner flex-block flex-shrink justify-center" style="margin:0;">
+                                <a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/OrderConfirmation.aspx#" class="jq-banner__close" title="Close Banner"><i class="icon-font">delete_large</i></a>
+                                <div class="banner__container flex-item align-self-center" style="display: flex; padding:0;"></div>
+                            </div>
+
+					        
+					        
+<div class="order-details orderSummary expanded">
+
+    <div class="order-details--header flex-block no-gutters align-center dont-stack">
+        <div class="flex-item col-7">
+            <h2 class="type-h5">
+                ご注文内容 
+                <span></span>
+            </h2>
+        </div>
+        <div class="order-details__total-holder flex-item col-5">
+            <span id="orderDetailsGrandTotal" class="type-h5 order-details-total showForMobile"></span>
+
+            <i class="icon-font show-for-closed" aria-hidden="true">directional_down</i>
+            <i class="icon-font show-for-open" aria-hidden="true">directional_up</i>   
+        </div>     
+    </div>
+
+    <div class="itemSummary">
+
+        
+                <div class="itemRow">
+                    <div class="leftCol">
+                        <div class="prodImg">
+                            <img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/ttwo-60991332_974443_ED.jpg" id="ctlOrderSummary_rptOrderSummary_ctl00_skuImage">
+                        </div>
+                        
+                    </div>
+                    <div class="rightCol">
+                        <div class="item-name">
+                            ティファニー T：Two オープン ホリゾンタル<br>バー ペンダント</div>
+
+                        
+                        <div class="lineItem">
+                            <div class="label">
+                                数量</div>
+                            <div class="value">1</div>
+                        </div>
+
+                        
+
+                        
+                        <div id="ctlOrderSummary_rptOrderSummary_ctl00_pnlItemGiftMessage">
+	
+                            <div class="lineItem spacer giftMsgTitle">
+                                <div class="label">
+                                    ギフトメッセージについて</div>
+                                <div class="value"><a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/SendTo.aspx?edit=1#giftMessage" id="ctlOrderSummary_rptOrderSummary_ctl00_A4" class="avenir type-cta">
+                                    ギフトメッセージを変更する</a></div>
+                            </div>
+                            <div class="giftMessageSummary" id="giftMsgSummary0">
+                                現在、ギフトメッセージはありません。
+                            </div>
+                        
+</div>
+                        <div class="lineItem">
+                            <div class="label">
+                                小計</div>
+                            <div class="value">¥291,600</div>
+                        </div>
+                    </div>
+                </div>
+            
+        <div class="summarySection">
+            <div id="ctlOrderSummary_pnlGrandSubtotal" class="lineItem">
+	
+                <div class="label">
+                    商品代金合計</div>
+                <div id="grand_sub_total_value" class="value">¥291,600</div>
+            
+</div>
+            <div id="ctlOrderSummary_pnlGrandShippingTotal" class="lineItem">
+	
+                <div class="label">
+                    配送料 ¥1,000</div>
+                <div id="grand_ship_total_value" class="value">¥1,000</div>
+            
+</div>
+            
+            
+            <div id="ctlOrderSummary_pnlTax">
+	
+                
+            
+</div>
+
+            <div id="ctlOrderSummary_pnlDaibikiFees" class="lineItem" style="display: none;">
+	
+                <div class="label">
+                    代引き手数料</div>
+                <div id="daibikiFee_value" class="value">¥1,080</div>
+            
+</div>
+
+        </div>
+        <div class="payment-total-sticky-holder" style="padding-bottom: 0px;">
+        <div class="payment-total-sticky">
+            <div class="grandTotal">
+                <div id="ctlOrderSummary_pnlGrandTotal">
+	
+                    <div class="lineItem">
+                        <div class="label">
+                            <span id="ctlOrderSummary_lblOrderSummaryGrandTotal">合計</span></div>
+                        <div id="grand_total_value" class="value">¥292,600</div>
+                    </div>
+                
+</div>
+
+                <div id="ctlOrderSummary_pnlPricesIncludeTax" class="taxInfo">
+	
+                    (消費税込み)
+                
+</div>
+                <div id="ctlOrderSummary_pnlVertexError" style="display:none">
+	
+                    Applicable taxes will be confirmed on your order confirmation prior to shipping
+                
+</div>
+            </div>
+
+            
+        </div>
+        </div>
+        
+    </div>
+</div>
+
+<div id="ctlOrderSummary_divShippingAddress">
+    <div id="ctlOrderSummary_pnlShippingMethod">
+	
+        <div id="shippingInfo" class="flex-block flex-wrap">
+            <div id="shipAddrSummarybox" class="flex-item col-6">
+                <h3>
+                    お届け先</h3>
+                <div><span id="RegistryAddress_Summary"></span></div>
+                
+                <div id="ctlOrderSummary_shippingAddressJapan">
+                    <div id="shippingAddress">
+                        <div id="summaryNamesJapan"><span id="ShippingAddressInputCtl_ctl00_txtKanjiLastName_Summary" style="display: inline;">ティファニー </span><span id="ShippingAddressInputCtl_ctl00_txtKanjiFirstName_Summary" style="display: inline;">テスト </span></div>
+                        <div><span id="ShippingAddressInputCtl_ctl00_txtKanaLastName_Summary" style="display: inline;">ティファニー </span><span id="ShippingAddressInputCtl_ctl00_txtKanaFirstName_Summary" style="display: inline;">テスト </span></div>
+                        <div><span id="ShippingAddressInputCtl_ctl00_txtZipCode_Summary" style="display: inline;">100 </span><span id="ShippingAddressInputCtl_ctl00_txtZipCode2_Summary" style="display: inline;">0005 </span></div>
+                        <div><span id="ShippingAddressInputCtl_ctl00_ddlPrefecture_Summary" style="display: inline;">東京都 </span></div>
+                        <div><span id="ShippingAddressInputCtl_ctl00_txtCity_Summary" style="display: inline;">千代田区 </span></div>
+                        <div><span id="ShippingAddressInputCtl_ctl00_txtAddress_Summary" style="display: inline;">丸の内2-1-1 </span></div>
+                        <div><span id="ShippingAddressInputCtl_ctl00_txtAddress2_Summary"></span></div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div id="ctlOrderSummary_pnlShipMethod" class="flex-item col-6">
+		
+                
+                <div id="shipMethodSummarybox" class="erase" style="display: block;">
+                    <h3>
+                        配送について</h3>
+                    <span id="shipMethod_Summary">
+                        配送料 ¥1,000
+                        <small>
+                            </small>
+                    </span>
+                </div>
+                <div class="shippingNotes">
+                    <span class="engravingShippingWarning" id="EngravingShippingMessage">
+                        <p>
+                            </p>
+                        
+                    </span>
+                </div>
+            
+	</div>
+            <div id="editShippingInfo" class="flex-item">
+                <ul class="blueBulletList">
+                    <li class="bullet"><a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/SendTo.aspx?edit=1" id="ctlOrderSummary_ancChangeRecipientAddress" class="avenir type-cta">
+                        お届け先を変更する</a></li>
+                </ul>
+            </div>            
+        </div>
+        
+    
+</div>
+
+    
+
+</div>
+
+
+
+                            
+
+<div class="accordion accordion--intialized" id="accordion1" role="tablist" aria-multiselectable="true">
+    <div class="accordion__item">
+        <a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/OrderConfirmation.aspx#" class="avenir type-cta accordion__toggle jq-accordion__toggle" title="Accordion Toggle Link" aria-expanded="false" aria-controls="accordion__item1">
+            お問い合わせ
+            <i class="icon-font plus" aria-hidden="true">plus</i>
+            <i class="icon-font minus" aria-hidden="true">minus</i>
+        </a>
+        <div class="accordion__item-content" aria-expanded="false" aria-hidden="true" id="accordion__item1">
+            <div id="checkoutTiles">
+                <div class="info-box">
+                    <h3 class="type-h5">
+                        カスタマーサービスへのお問い合わせ</h3>
+                     <p>
+                        
+                        </p><p>ご質問・ご不明な点がございましたら、お電話またはEメールでティファニーまでお問い合わせいただくか、お客様のご連絡先をお知らせください。担当者より折り返しご連絡いたします。</p><a class="type-cta avenir" href="tel:0120488712">電話 0120 488 712</a><br><br><a href="https://www.ps2.tiffany.co.jp/Customer/Request/EmailCustSvr.aspx" id="linkI1EmailCustomerService" class="type-cta avenir open-modal desktop" data-size="skinny" data-iframe="true">メールで問い合わせ</a> <a href="https://www.ps2.tiffany.co.jp/Mobile/Customer/Request/EmailCustSvr.aspx" id="linkI1EmailCustomerService" class="type-cta avenir mobile" data-size="skinny" data-iframe="true">メールで問い合わせ</a>
+                    <p></p>
+                </div>
+                <div class="info-box">
+                    <h3 class="type-h5">
+                        </h3>
+                    <p>
+                        
+                        
+                    </p>
+                </div>
+                <div class="info-box">
+                    <h3 class="type-h5">
+                        商品の配送について</h3>
+                    <p>
+                        
+                        TIFFANY.COMでご注文いただいた商品は、最短でご注文の翌営業日に商品を発送いたします。<br><br>
+商品到着日は本州・四国の場合商品発送日の翌日、北海道・九州・沖縄・その他離島は発送日の翌々日です。ただし、交通事情等の理由で到着日が遅れることがございますのであらかじめご了承ください。
+<br><br>一回のご注文につき、全国一律で配送料 1,000円（税込み）を頂戴いたします。
+<br><br>なお海外からのご注文、海外への配送は承ることができませんので、あらかじめご了承ください。
+<br><br>
+ティファニーブティックでのお受け取り、私書箱とヤマト運輸営業所留めの配送は承っておりません。<br><br>
+お客様がご指定されたお届け先における荷物の紛失・盗難につきましては、ティファニーは一切の責任を負わないものとします。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+                        </div>
+				    </div>
+                </div>
+			</div>
+			
+			<div class="erase">
+				
+<div class="additionLinksFooter">    
+    <p id="contentLinkListHdr" class="bodyText">その他のインフォメーション</p>
+    
+    <script language="javascript">
+    function buildHref(path)
+    {
+	    location.href = rootUrl + path;
+    }
+    //-->
+    </script>
+    
+	    <ul class="blueBulletList" style="margin:0px; padding:0px;">
+	        
+			    <li class="bullet"><a href="javascript:linkTermsOfUse();">ご利用規約</a></li>			
+		    
+				    <li class="bullet"><a href="javascript:linkShoppingFAQs();">ショッピングに関するFAQ</a></li>
+			    
+			    <li class="bullet"><a href="javascript:linkGemstoneCareEnhancement();">宝石の処理とお手入れ方法</a></li>
+		    
+	    </ul>
+       
+</div>
+			</div>
+		</div>
+		
+		<div id="pnlProcessing" style="display: none;">
+			<div class="orderProcessingPage">
+				<h1><span>現在手続き中です。</span></h1>
+				<p>
+					このままお待ちください。</p><p>
+					クレジットカードに再度請求される恐れがありますので、<br>ブラウザの「戻る」ボタンをクリックしたり、このウィンドウを閉じたりしないでください。</p><img src="./Tiffany &amp; Co. _ ご注文内容の確認_files/progress.gif" alt="" width="49" height="51"> </div><div id="processingPageFooter">
+				&nbsp;</div></div>
+
+<div id="footer">
+	
+    
+<div class="allLinksFooter">
+    <script language="javascript">
+        function buildHref(path) {
+            location.href = rootUrl + path;
+        }
+    </script>
+    
+	        <ul class="blueBulletList l2" style="margin:0px; padding:0px;">
+		    
+			    <li class="bullet"><a href="https://www.ps2.tiffany.co.jp/Service/FaqOverlay.aspx?faqCode=linkshippingratestimes&amp;showBnr=true&amp;redesign=true" class="avenir type-cta jq-open-modal">発送と返品について</a></li>
+		    
+			    <li class="bullet"><a id="A5" class="avenir type-cta" href="https://www.ps2.tiffany.co.jp/Shopping/CategoryBrowse.aspx?cid=298242">クリーニング アイテムのご案内</a></li>
+		    
+			    <li class="bullet"><a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/AboutTermsOfUse.aspx?redesign=true" class="avenir type-cta jq-open-modal">ご利用規約</a></li>			
+		    
+				    <li class="bullet"><a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/ShoppingFaq.aspx?redesign=true" class="avenir type-cta jq-open-modal">ショッピングに関するFAQ</a></li>
+			    
+			    <li class="bullet"><a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/GemstoneCare.aspx?redesign=true" class="avenir type-cta jq-open-modal">宝石の処理とお手入れ方法</a></li>
+		    
+                <li class="bullet"><a href="https://www.ps2.tiffany.co.jp/Customer/Checkout/PrivacyPolicy.aspx?redesign=true" class="avenir type-cta jq-open-modal">プライバシーポリシー</a></li>
+		    
+	    </ul>
+       
+</div>
+
+
+    
+
+</div>
+
+<a class="back-to-top showForMobile">
+    トップへ戻る 
+    <i class="icon-font">directional_up</i>
+</a>
+
+<div class="copyright showForMobile">
+    ©T&amp;CO. 2018
+</div>
+
+
+	
+
+    </div>
+
+
+
+	
+<!---->
+
+
+ 
+
+
+<script type="text/javascript" language="JavaScript">
+
+var Is_Omniture_Enabled ="true";
+    
+
+  </script>
+
+<script type="text/javascript" language="JavaScript">
+
+
+
+  
+</script>
+
+<script language="javascript" type="text/javascript">
+    var isMobileSiteForMM = 'false';
+    //var isSecureForMM = "https:" == document.location.protocol ? true : false;    
+    function isSecureForMM() {
+        return "https:" == document.location.protocol ? true : false;    
+    }
+</script>
+<script>
+    // INSTRUCTIONS
+    // The VersaTag code should be placed at the top of the <BODY> section of the HTML page.
+    // To ensure that the full page loads as a prerequisite for the VersaTag
+    // being activated (and the working mode is set to synchronous mode), place the tag at the bottom of the page. Note, however, that this may
+    // skew the data for slow-loading pages, and in general is not recommended.
+    // If the VersaTag code is configured to run in async mode, place the tag at the bottom of the page before the end of the <BODY > section.
+
+    //
+    // NOTE: You can test if the tags are working correctly before the campaign launches
+    // as follows:  Browse to http://bs.serving-sys.com/BurstingPipe/adServer.bs?cn=at, which is 
+    // a page that lets you set your local machine to 'testing' mode.  In this mode, when
+    // visiting a page that includes a VersaTag, a new window will open, showing you
+    // the tags activated by the VersaTag and the data sent by the VersaTag tag to the MediaMind servers.
+    //
+    // END of instructions (These instruction lines can be deleted from the actual HTML)       
+    // iTrack 17738 - (Global) Recognize DNT Signals for Third Party Cookies
+    if (isDNT() == "no") {
+        var versaTag = {};
+        versaTag.id = "1000";
+        versaTag.sync = 0;
+        versaTag.dispType = "js";
+        versaTag.ptcl = isSecureForMM() ? "HTTPS" : "HTTP";
+        versaTag.bsUrl = "bs.serving-sys.com/BurstingPipe";
+        versaTag.mobile = (isMobileSiteForMM == 'true' ? 1 : 0);
+        //VersaTag activity parameters include all conversion parameters including custom parameters. Syntax: "ParamName1":"ParamValue1", "ParamName2":"ParamValue2". ParamValue can be empty.
+        versaTag.activityParams = {"OrderID":"","Session":"","Value":"","ProductID":"","ProductInfo":"","Quantity":"","SKU_Number":"" };
+        //Static retargeting tags parameters. Syntax: "TagID1":"ParamValue1", "TagID2":"ParamValue2". ParamValue can be empty.
+        versaTag.retargetParams = {};
+        //Dynamic retargeting tags parameters. Syntax: "TagID1":"ParamValue1", "TagID2":"ParamValue2". ParamValue can be empty.
+        versaTag.dynamicRetargetParams = {};
+        //Third party tags conditional parameters. Syntax: "TagID1":"ParamValue1", "TagID2":"ParamValue2". ParamValue can be empty.
+        versaTag.conditionalParams = {};
+    }
+</script>
+ <script type="text/javascript">
+     try {
+         // iTrack 17738 - (Global) Recognize DNT Signals for Third Party Cookies
+         if (isDNT() == "no") {
+             if (isSecureForMM()) {
+                 document.write(unescape("%3Cscript id='ebOneTagUrlId' src='https://secure-ds.serving-sys.com/SemiCachedScripts/ebOneTag.js' %3E%3C/script%3E"));
+             }
+             else {
+                 document.write(unescape("%3Cscript id='ebOneTagUrlId' src='http://ds.serving-sys.com/SemiCachedScripts/ebOneTag.js' %3E%3C/script%3E"));           
+             }
+         }
+     }
+     catch (err) { }
+</script><script id="ebOneTagUrlId" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/ebOneTag.js.ダウンロード"></script>
+
+<noscript>
+ &lt;iframe src="https://bs.serving-sys.com/BurstingPipe?cn=ot&amp;amp;onetagid=1000&amp;amp;ns=1&amp;amp;activityValues=$$Value=&amp;amp;OrderID=&amp;amp;SKU_Number=&amp;amp;ProductID=&amp;amp;ProductInfo=&amp;amp;Quantity=&amp;amp;$$&amp;amp;retargetingValues=$$&amp;amp;dynamicRetargetingValues=$$&amp;amp;acp=$$$$&amp;amp;" style="display:none;width:0px;height:0px"&gt;&lt;/iframe&gt;
+</noscript>
+
+
+
+
+<script type="text/javascript" language="javascript">
+try{
+_satellite.pageBottom();
+}
+catch (err) { }
+</script><!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '307547469578471'); 
+fbq('track', 'PageView');
+</script>
+<!-- End Facebook Pixel Code -->
+<!-- RTP tag --> 
+<script type="text/javascript">
+(function(c,h,a,f,i,e){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+ c[a].a=i;c[a].e=e;var g=h.createElement("script");g.async=true;g.type="text/javascript";
+ g.src=f+'?aid='+i;var b=h.getElementsByTagName("script")[0];b.parentNode.insertBefore(g,b);
+ })(window,document,"rtp","//abrtp1-cdn.marketo.com/rtp-api/v1/rtp.js","tiffanycojapaninc");
+ 
+rtp('send','view');
+rtp('get', 'campaign',true);
+</script>
+<!-- End of RTP tag -->
+	
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="FF3BA302">
+</div>
+
+                    <script language="javascript">
+                    togglePaymentMethods();updateDaibikiInOrderSummary("creditcard")</script><script language="JavaScript" type="text/JavaScript">$("#checkoutAdditionalInfo").show();</script></form><iframe sandbox="allow-scripts allow-same-origin" title="Adobe ID Syncing iFrame" id="destination_publishing_iframe_tiffanyandcompany_0" name="destination_publishing_iframe_tiffanyandcompany_0_name" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/dest5.html" style="display: none; width: 0px; height: 0px;" class="aamIframeLoaded"></iframe><iframe src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-5b9c1dd964746d598b0028ff-staging.html" style="display: none;"></iframe><iframe src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-5b83643f64746d2878001781-staging.html" style="display: none;"></iframe><iframe src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-5b90072564746d176d00cccf-staging.html" style="display: none;"></iframe>
+	
+	<script language="JavaScript">
+		//updateCreditCardInputs();
+	</script>
+	
+
+
+<iframe src="./Tiffany &amp; Co. _ ご注文内容の確認_files/satellite-5b98319964746d081f001e45-staging.html" style="display: none;"></iframe><script type="text/javascript" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/Serving" async=""></script><iframe scrolling="no" marginwidth="0" marginheight="0" frameborder="0" style="display: none; width: 0px; height: 0px;" src="./Tiffany &amp; Co. _ ご注文内容の確認_files/saved_resource(2).html"></iframe></body></html>
