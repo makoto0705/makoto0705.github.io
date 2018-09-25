@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- saved from url=(0391)https://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-5b9c155964746d1bef002488-staging.html?26m=undefined&26type=undefined&3Bc=undefined&3Bp=undefined&3D1.0=undefined&3D6&ex-fch=416613&ex-src=https://www.tiffany.co.jp/collections/rtt&ex-hargs=v=undefined&3D7=undefined&3D9771489040503=undefined&3Df2be0018-501a-45c2-6064-641c7ebf5159=undefined&3Fid=undefined -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<!-- Use of this pixel is subject to the Amazon ad specs and policies at http://www.amazon.com/b/?&node=7253015011 --><script type='text/javascript'>var _pix = document.getElementById('_pix_id_f2be0018-501a-45c2-6064-641c7ebf5159');if (!_pix) {    var protocol = '//';    var a = Math.random() * 1000000000000000000;    _pix = document.createElement('iframe');    _pix.style.display = 'none';    _pix.setAttribute('src', protocol + 'aax-fe.amazon-adsystem.com/s/iu3?d=generic&ex-fargs=%3Fid%3Df2be0018-501a-45c2-6064-641c7ebf5159%26type%3D7%26m%3D6&ex-fch=416613&ex-src=https://www.tiffany.co.jp/collections/rtt&ex-hargs=v%3D1.0%3Bc%3D9771489040503%3Bp%3DF2BE0018-501A-45C2-6064-641C7EBF5159' + '&cb=' + a);    _pix.setAttribute('id','_pix_id_f2be0018-501a-45c2-6064-641c7ebf5159');    document.body.appendChild(_pix);}</scr"+"ipt><noscript>    <img height='1' width='1' border='0' alt='' src='https://aax-fe.amazon-adsystem.com/s/iui3?d=forester-did&ex-fargs=%3Fid%3Df2be0018-501a-45c2-6064-641c7ebf5159%26type%3D7%26m%3D6&ex-fch=416613&ex-src=https://www.tiffany.co.jp/collections/rtt&ex-hargs=v%3D1.0%3Bc%3D9771489040503%3Bp%3DF2BE0018-501A-45C2-6064-641C7EBF5159' /></noscript>";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><!-- Use of this pixel is subject to the Amazon ad specs and policies at http://www.amazon.com/b/?&node=7253015011 --><script type="text/javascript">var _pix = document.getElementById('_pix_id_f2be0018-501a-45c2-6064-641c7ebf5159');if (!_pix) {    var protocol = '//';    var a = Math.random() * 1000000000000000000;    _pix = document.createElement('iframe');    _pix.style.display = 'none';    _pix.setAttribute('src', protocol + 'aax-fe.amazon-adsystem.com/s/iu3?d=generic&ex-fargs=undefined3Df2be0018-501a-45c2-6064-641c7ebf5159%26typeundefined26m%3D6&ex-fch=416613&ex-src=https://www.tiffany.co.jp/collections/rtt&ex-hargs=vundefined3Bcundefined3Bp%3DF2BE0018-501A-45C2-6064-641C7EBF5159' + '&cb=' + a);    _pix.setAttribute('id','_pix_id_f2be0018-501a-45c2-6064-641c7ebf5159');    document.body.appendChild(_pix);}</script><iframe src="./iu3.html" id="_pix_id_f2be0018-501a-45c2-6064-641c7ebf5159" style="display: none;"></iframe><noscript>    &lt;img height='1' width='1' border='0' alt='' src='https://aax-fe.amazon-adsystem.com/s/iui3?d=forester-did&amp;ex-fargs=undefined3Df2be0018-501a-45c2-6064-641c7ebf5159%26typeundefined26m%3D6&amp;ex-fch=416613&amp;ex-src=https://www.tiffany.co.jp/collections/rtt&amp;ex-hargs=vundefined3Bcundefined3Bp%3DF2BE0018-501A-45C2-6064-641C7EBF5159' /&gt;</noscript>
+  
+
+</body></html>
