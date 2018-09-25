@@ -1,0 +1,139 @@
+_satellite.pushBlockingScript(function(event, target, $variables){
+  window._trackData = function() {
+    try {
+        _satellite.notify('_trackData called', 2);
+        if(_satellite.readStoredSetting('debug') && typeof console == 'object' && typeof console.log == 'function') {
+            console.log('_trackData arguments: ', arguments[0]);
+        }
+      if(_satellite.settings.isStaging) console.log('trackData json:', JSON.stringify(arguments[0],null,3));
+
+        var directCallEvents = _satellite.getVar('direct_call_events'),
+            dataLayerCache = false;
+
+        /* Loop through all of the arguments (multiple data objects) */
+        for(var i = 0, l = arguments.length; i < l; i++) {
+            var data = arguments[i],
+                newProducts = false;
+
+            /* Make sure we have a correct object */
+            if(typeof data !== 'object') {
+                continue;
+            }
+
+            /* Verify we have had a page view, otherwise store existing dataLayer */
+            if(!window.dtmHasPageView && window.dataLayer && (!data.events || !data.events.pageView) && data.events.error) {
+                continue;
+            }
+
+            /* Overwrite the page-scope data layer with new values */
+            for(var property in data) {
+                if(data.hasOwnProperty(property)) {
+                    window.dataLayer[property] = data[property];
+                    if(property == 'products') {
+                        newProducts = true;
+                    }
+                }
+            }
+            _satellite.setVar('_newProducts', newProducts);
+
+            /* Check for any direct calls that need to be made */
+            if(typeof data.events == 'object' && typeof directCallEvents == 'object' && directCallEvents.length > 0) {
+                for(var j = 0, k = directCallEvents.length; j < k; j++) {
+                    if(data.events[directCallEvents[j]] === true) {
+                        _satellite.track(directCallEvents[j]);
+                    }
+                }
+            }
+
+            /* Google Analytics Tracking */
+            if(typeof window.ga == 'function') {
+                try {
+                    var gaProducts = _satellite.getVar('ga_ecommerce_products'),
+                        gaEcomAction = _satellite.getVar('ga_ecommerce_actions'),
+                        gaEvents = _satellite.getVar('ga_events'),
+                        gaTrackers = _satellite.getVar('ga_trackers');
+
+                    for(var gaTracker in gaTrackers) {
+                        if(!gaTrackers.hasOwnProperty(gaTracker) || !gaTrackers[gaTracker]) { continue; }
+
+                        /* Ecommerce data */
+                        if(typeof gaProducts === 'object' && typeof gaProducts[gaTracker] === 'object' && gaProducts[gaTracker].length) {
+                            for(var gaLoopI=0,gaLoopL = gaProducts[gaTracker].length; gaLoopI < gaLoopL; gaLoopI++) {
+                                if(typeof gaProducts[gaTracker][gaLoopI] === 'object') {
+                                    ga(gaTracker + '.ec:addProduct', gaProducts[gaTracker][gaLoopI]);
+                                } else {
+                                    _satellite.notify('Invalid param for ga ecommerce products', 4);
+                                }
+                            }
+                        }
+                        if(typeof gaEcomAction === 'object' && typeof gaEcomAction[gaTracker] === 'object') {
+                            if(gaEcomAction[gaTracker].action && gaEcomAction[gaTracker].data) {
+                                ga(gaTracker + '.ec:setAction', gaEcomAction[gaTracker].action, gaEcomAction[gaTracker].data);
+                            }
+                        }
+
+                        /* Page view data */
+                        if(window.dataLayer.events.pageView) {
+                            ga(gaTracker + '.send', {
+                                'hitType': 'pageView',
+                                'location': _satellite.getVar('page_url')
+                            });
+                        }
+
+                        /* Event data */
+                        if(typeof gaEvents[gaTracker] === 'object' && gaEvents[gaTracker].length) {
+                            for(var gaLoopI=0,gaLoopL = gaEvents[gaTracker].length; gaLoopI < gaLoopL; gaLoopI++) {
+                                if(typeof gaEvents[gaTracker][gaLoopI] === 'object') {
+                                    ga(gaTracker + '.send', gaEvents[gaTracker][gaLoopI]);
+                                } else {
+                                    _satellite.notify('Invalid param for ga event', 4);
+                                }
+                            }
+                        }
+                    }
+                } catch(error) {
+                    _satellite.notify('_trackData GA error: ' + error.message, 5);
+                }
+            } else {
+                _satellite.notify('_trackData GA not ready', 5);
+            }
+
+            /* Adobe Analytics Tracking */
+            if(typeof window.dtm_s == 'object') {
+                try {
+                    window.dtm_s.events = '';
+                    if(window.dataLayer.events.pageView) {
+                        window.dtm_s.t();
+                        window.dtm_s.events = '';
+                    } else {
+                        var eventName = '';
+                        for(var event in window.dataLayer.events) {
+                            if(window.dataLayer.events.hasOwnProperty(event) && window.dataLayer.events[event] == true) {
+                                eventName = event;
+                                break;
+                            }
+                        }
+                        window.dtm_s.prop74 = '_trackData';
+                        window.dtm_s.tl(true, 'o', eventName);
+                        window.dtm_s.prop74 = '';
+                        window.dtm_s.events = '';
+                        window.dataLayer.events = {};
+                    }
+                } catch(error) {
+                    _satellite.notify('_trackData AA error: ' + error.message, 5);
+                }
+            } else {
+                _satellite.notify('_trackData AA not ready', 5);
+            }
+            _satellite.setVar('_newProducts', false);
+        }
+    } catch(error) {
+        _satellite.notify('_trackData error: ' + error.message, 5);
+    }
+};
+
+_satellite.cleanCurrency = function(amount) {
+    amount = String(amount);
+    return amount.replace(/\D/g, ',').replace(/,(?=\d{2}$)/, '.').replace(/,/g, '');
+};
+});

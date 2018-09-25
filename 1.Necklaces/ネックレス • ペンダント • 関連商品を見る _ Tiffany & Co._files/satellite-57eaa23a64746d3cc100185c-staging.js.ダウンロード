@@ -1,0 +1,8 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+  if(!window.location.pathname.match(/ThankYou/) && false===dataLayer.events.purchase) {
+    fbq('init', '307547469578471');
+    fbq('track', "PageView");
+  }
+}catch(e){console.log('gtm:jp-everypage:error',e);}
+});
