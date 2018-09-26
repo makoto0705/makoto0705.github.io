@@ -1,0 +1,5 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+   window['acr_grandTotal'] = ( +_satellite.getVar('products_total_price') +  +_satellite.getVar('ecommerce_tax') + +_satellite.getVar('ecommerce_shipping_amount'));
+}catch(e){console.log('DTM:temp-grand-total',e);}
+});

@@ -1,0 +1,12 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    snaptr('track', 'PURCHASE', {
+        'currency': _satellite.getVar('ecommerce_currency'),
+        'price': _satellite.getVar('products_total_price'),
+        'transaction_id': _satellite.getVar('ecommerce_purchaseID'),
+        'item_ids': _satellite.getVar('snapchat_products')
+    });
+} catch (e) {
+    _satellite.notify('dtm:all-purchase:err:' + e.message, 5);
+}
+});

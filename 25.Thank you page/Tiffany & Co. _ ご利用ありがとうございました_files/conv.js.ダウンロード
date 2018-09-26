@@ -1,0 +1,14 @@
+(function() {
+  var unixtime = parseInt((new Date)/1000) + Math.random();
+  var url = 'https://b90.yahoo.co.jp/c?yahoo_ydn_conv_io=' + yahoo_ydn_conv_io + '&yahoo_ydn_conv_label=' + yahoo_ydn_conv_label + '&yahoo_ydn_conv_transaction_id=' + yahoo_ydn_conv_transaction_id;
+  if (typeof yahoo_ydn_conv_value !== "undefined") {
+      url += '&yahoo_ydn_conv_value=' + yahoo_ydn_conv_value;
+  } else if (typeof yahoo_ydn_conv_amount !== "undefined") {
+      url += '&yahoo_ydn_conv_value=' + yahoo_ydn_conv_amount;
+  }
+  url += '&r=' + unixtime;
+  var f = document.getElementsByTagName('script')[0],
+      j = document.createElement('img');
+  j.src = url;
+  f.parentNode.insertBefore(j, f);
+})();

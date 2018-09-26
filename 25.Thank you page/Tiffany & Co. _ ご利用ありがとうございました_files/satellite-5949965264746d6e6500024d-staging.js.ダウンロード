@@ -1,0 +1,15 @@
+try {
+    var img = document.createElement('img'),
+        s   = document.getElementsByTagName('script')[0],
+        params = "https://rt2-t.tco.tiffany.com/r/" + Math.random().toString().substr(2) +
+                "?tagid=39c620f" +
+                "&amount="+_satellite.getVar("google_totalvalue")+
+                "&article="+_satellite.getVar("products_total_quantity")+
+                "&confirmationId="+_satellite.getVar("ecommerce_purchaseID");
+    img.width = img.height = 1;
+    img.style = 'display:none;';
+    img.src = params;
+    s.parentNode.insertBefore(img, s);
+} catch(e) {
+    _satellite.notify(e.message, 5);
+}

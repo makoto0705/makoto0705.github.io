@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0124)https://assets.adobedtm.com/96cc2b959a063996725d32f4ccd6e658f0fa8a39/scripts/satellite-5b90072564746d176d00cccf-staging.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>
+    <script async="" src="./saved_resource(3)"></script><script>
+      (function(){
+        function escapeForHtml(str){
+          if (!str) return str
+          return str
+            .replace(/\&/g, '&amp;')
+            .replace(/\</g, '&lt;')
+            .replace(/\>/g, '&gt;')
+            .replace(/\"/g, '&quot;')
+            .replace(/\'/g, '&#x27;')
+            .replace(/\//g, '&#x2F;')
+        }
+
+        var regexChars = /[.*+?^${}()|[\]\\]/g;
+        function escapeForRegex(str) {
+          return str.replace(regexChars, "\\$&");
+        }
+
+        function parseQueryString(){
+          var ret = {}, parts = location.search.substring(1).split('&');
+          for (var i = parts.length; i--;) {
+            var vardef = parts[i].split('='), varname = vardef[0], value = vardef[1];
+            ret[varname] = unescape(value);
+          }
+          return ret;
+        }
+
+        var queryParams = parseQueryString();
+
+        var markup = "<!-- Yahoo Code for your Target List -->\n<script type=\"text/javascript\" language=\"javascript\">\n/* <![CDATA[ */\nvar yahoo_retargeting_id = 'NJQVLPWJO6';\nvar yahoo_retargeting_label = '';\nvar yahoo_retargeting_page_type = 'home';\nvar yahoo_retargeting_items = [{item_id: '', category_id: '', price: '', quantity: ''}];\n/* ]]> */\n</scr"+"ipt>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://b92.yahoo.co.jp/js/s_retargeting.js\"></scr"+"ipt>";
+
+        for (var name in queryParams){
+          var regex = new RegExp('%' + escapeForRegex(name) + '%', 'ig');
+          markup = markup.replace(regex, 
+            escapeForHtml(queryParams[name]));
+        }
+
+        document.write(markup)
+      })();
+    </script><!-- Yahoo Code for your Target List -->
+<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+var yahoo_retargeting_id = 'NJQVLPWJO6';
+var yahoo_retargeting_label = '';
+var yahoo_retargeting_page_type = 'home';
+var yahoo_retargeting_items = [{item_id: '', category_id: '', price: '', quantity: ''}];
+/* ]]> */
+</script>
+<script type="text/javascript" language="javascript" src="./s_retargeting.js.&#12480;&#12454;&#12531;&#12525;&#12540;&#12489;"></script>
+  
+
+</body></html>
