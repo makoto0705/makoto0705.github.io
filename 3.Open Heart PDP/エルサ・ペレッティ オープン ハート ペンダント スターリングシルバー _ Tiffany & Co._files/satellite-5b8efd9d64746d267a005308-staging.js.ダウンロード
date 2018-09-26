@@ -1,0 +1,9 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    snaptr('track', 'VIEW_CONTENT', {
+        'item_ids': _satellite.getVar('snapchat_products')
+    });
+} catch (e) {
+    _satellite.notify('dtm:all-product-view:err:' + e.message, 5);
+}
+});
