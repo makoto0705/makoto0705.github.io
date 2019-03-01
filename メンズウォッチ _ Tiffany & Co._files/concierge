@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 21 21" style="enable-background:new 0 0 21 21;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;}
+	.st2{mask:url(#mask-2_1_);}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;}
+</style>
+<title>icon/concierge</title>
+<desc>Created with Sketch.</desc>
+<g>
+	<g>
+		<g id="Mask">
+			<path d="M19.2,13.1v1.8H1.8v-1.8c0-4.7,3.7-8.5,8.3-8.7V0.9H7V0h7v0.9h-3.1v3.5C15.6,4.6,19.2,8.4,19.2,13.1z M18.4,13.1
+				c0-4.3-3.5-7.9-7.9-7.9s-7.9,3.5-7.9,7.9V14h15.7L18.4,13.1L18.4,13.1z M0.4,20.1V20l1.9-2.9h16.2l2,2.9v0.1H21V21H0v-0.9H0.4z
+				 M1.4,20.1h18.2l-1.5-2.2H2.8L1.4,20.1z"/>
+		</g>
+		<defs>
+			<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="21" height="21">
+				<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+			</filter>
+		</defs>
+		<mask maskUnits="userSpaceOnUse" x="0" y="0" width="21" height="21" id="mask-2_1_">
+			<g class="st0">
+				<path id="path-1_1_" class="st1" d="M19.2,13.1v1.8H1.8v-1.8c0-4.7,3.7-8.5,8.3-8.7V0.9H7V0h7v0.9h-3.1v3.5
+					C15.6,4.6,19.2,8.4,19.2,13.1z M18.4,13.1c0-4.3-3.5-7.9-7.9-7.9s-7.9,3.5-7.9,7.9V14h15.7L18.4,13.1L18.4,13.1z M0.4,20.1V20
+					l1.9-2.9h16.2l2,2.9v0.1H21V21H0v-0.9H0.4z M1.4,20.1h18.2l-1.5-2.2H2.8L1.4,20.1z"/>
+			</g>
+		</mask>
+		<g class="st2">
+			<rect id="Rectangle" class="st3" width="21" height="21"/>
+		</g>
+	</g>
+</g>
+</svg>
