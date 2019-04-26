@@ -1,113 +1,15 @@
-<html>
- <head>
-   <title>TEST</title>
- </head>
- <body>
-  <p>テストだよ＾＾</p>
-  <script>
-   ! function(e) {
-    var n = "__gunoad",
-        t = "tr.gunosy.com",
-        o = {
-            get: function(e) {
-                return e && this.hasItem(e) ? decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(e).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) : null
-            },
-            set: function(e, n) {
-                var t = "; Path=/; Expires=Tue, 19 Jan 2038 03:14:07 GMT";
-                document.cookie = encodeURIComponent(e) + "=" + encodeURIComponent(n) + t
-            },
-            hasItem: function(e) {
-                return new RegExp("(?:^|;\\s*)" + encodeURIComponent(e).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=").test(document.cookie)
-            }
-        },
-        a = function() {
-            for (var e = new Array(16), n = 0; n < 16; ++n) e[n] = Math.floor(255 * Math.random());
-            e[6] = 15 & e[6] | 64, e[8] = 63 & e[8] | 128;
-            var t = "0123456789abcdef",
-                o = new Array(256);
-            for (n = 0; n < 256; n++) {
-                var a = t[n >> 4] + t[15 & n];
-                o[n] = a
-            }
-            n = 0;
-            return [o[e[n++]], o[e[n++]], o[e[n++]], o[e[n++]], "-", o[e[n++]], o[e[n++]], "-", o[e[n++]], o[e[n++]], "-", o[e[n++]], o[e[n++]], "-", o[e[n++]], o[e[n++]], o[e[n++]], o[e[n++]], o[e[n++]], o[e[n++]]].join("")
-        },
-        r = o.get(n + "_m_" + e);
-    if (!r)
-        for (var i = window.location.search.substring(1).split("&"), c = 0; c < i.length; c++) {
-            var s = i[c];
-            if (s.startsWith("gunoad_cid")) {
-                r = s.split("=")[1];
-                break
-            }
-        }
-    var d = o.get(n);
-    d || (d = a(), o.set(n, d));
-    var p = "//" + t + "/v1/web_micro_cv";
-    p += "?cid=" + (r || ""), p += "&tid=" + (e || ""), p += "&sid=" + (d || "");
-    var m = document.createElement("img");
-    m.width = 1, m.height = 1, m.src = p, m.style.display = "none", document.body.appendChild(m)
-}("1549505214-857");
-  </script>
-  <script>
-! function(n) {
-    for (var e = "__gunoad", o = "cv.gunosy.com", t = {
-            get: function(n) {
-                return n && this.hasItem(n) ? decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(n).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1")) : null
-            },
-            set: function(n, e) {
-                var o = "; Path=/; Expires=Tue, 19 Jan 2038 03:14:07 GMT";
-                document.cookie = encodeURIComponent(n) + "=" + encodeURIComponent(e) + o
-            },
-            hasItem: function(n) {
-                return new RegExp("(?:^|;\\s*)" + encodeURIComponent(n).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=").test(document.cookie)
-            }
-        }, i = function() {
-            for (var n = new Array(16), e = 0; e < 16; ++e) n[e] = Math.floor(255 * Math.random());
-            n[6] = 15 & n[6] | 64, n[8] = 63 & n[8] | 128;
-            var o = "0123456789abcdef",
-                t = new Array(256);
-            for (e = 0; e < 256; e++) {
-                var i = o[e >> 4] + o[15 & e];
-                t[e] = i
-            }
-            e = 0;
-            return [t[n[e++]], t[n[e++]], t[n[e++]], t[n[e++]], "-", t[n[e++]], t[n[e++]], "-", t[n[e++]], t[n[e++]], "-", t[n[e++]], t[n[e++]], "-", t[n[e++]], t[n[e++]], t[n[e++]], t[n[e++]], t[n[e++]], t[n[e++]]].join("")
-        }, c = "", r = window.location.search.substring(1).split("&"), a = 0; a < r.length; a++) {
-        var s = r[a];
-        if (s.startsWith("gunoad_cid")) {
-            c = s.split("=")[1];
-            break
-        }
-    }
-    c ? t.set(e + "_m_" + n, c) : c = t.get(e + "_m_" + n);
-    var d = t.get(e);
-    d || (d = i(), t.set(e, d));
-    var u = "//" + o + "/lp/impression";
-    u += "?cid=" + (c || ""), u += "&tid=" + (n || ""), u += "&sid=" + (d || "");
-    var l = document.createElement("img");
-    l.width = 1, l.height = 1, l.src = u, l.style.display = "none", document.body.appendChild(l);
-    var p = {
-        link: function(n) {
-            var e = n.split("?"),
-                o = e[0],
-                t = 1 < e.length ? e[1] : "",
-                i = 1 < t.split("#").length,
-                r = "";
-            if (i) {
-                var a = t.split("#");
-                t = a[0], r = a[1]
-            }
-            if (!t.includes("gunoad_cid=")) {
-                var s = "gunoad_cid=" + c;
-                "" !== t ? t += "&" + s : t = s
-            }
-            var d = o + "?" + t;
-            return i && (d += "#" + r), d
-        }
-    };
-    void 0 === window.GunosyTransit ? window.GunosyTransit = p : window.GunosyTransit.link = p.link
-}("1549505214-857");
+<!-- Global site tag (gtag.js) - Google Ads: 925959929 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-925959929"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-925959929');
 </script>
- </body>
-</html>
+<!-- Event snippet for 購入 conversion page -->
+<script>
+  gtag('event', 'conversion', {'send_to': 'AW-925959929/Xz8oCOKt5WQQ-Y3EuQM',
+    'value': 1111111,
+    'currency': 'JPY'});
+</script>
