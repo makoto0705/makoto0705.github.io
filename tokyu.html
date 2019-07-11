@@ -1,24 +1,11 @@
-<script>
-(function(){
-  //メタタグ生成
-  var meta = document.createElement('meta');
-  meta.setAttribute("name", "com.silverpop.brandeddomains");
-  meta.setAttribute("content", "www.pages07.net,makoto0705.github.io");
-  document.getElementsByTagName('head')[0].appendChild(meta);
-
-  //WebTrackingTag
-  window.addEventListener('gtmViewCollection', WebTrackingTag, false);
-  window.addEventListener('gtmViewItem', WebTrackingTag, false);
-  function WebTrackingTag(){
-    var nowProtocol = location.href.split('://')[0];
-    var webTrackingTag = document.createElement("script");
-    var s = document.getElementsByTagName("script")[0];
-    if(nowProtocol.indexOf("https") == 0){
-        webTrackingTag.src = "https://www.sc.pages07.net/lp/static/js/iMAWebCookie.js?5b5155af-1537c55d15f-bd2df29db3f7cdef16293cf7b9d2669f&h=www.pages07.net";
-    } else if(nowProtocol.indexOf("http") == 0){
-        webTrackingTag.src = "http://contentz.mkt71.net/lp/static/js/iMAWebCookie.js?5b5155af-1537c55d15f-bd2df29db3f7cdef16293cf7b9d2669f&h=www.pages07.net";
-    }
-    s.parentNode.insertBefore(webTrackingTag, s);
-  }
-})();
+<script type="text/javascript">
+window.nex_rt_queue = window.nex_rt_queue || [];
+window.nex_rt_queue.push({
+    "item_group_id": 679,
+    "page": "home",
+    "skus": [],
+    "site_type": "",
+    "user_segment": ""
+});
 </script>
+<script type="text/javascript" src="//st.nex8.net/js/nexRt.js" async="async"></script>
