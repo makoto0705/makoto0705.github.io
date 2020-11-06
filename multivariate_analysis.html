@@ -1,0 +1,111 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="text/css" http-equiv="Content-Style-Type">
+<title>目的：認知施策のROIを定量化する</title>
+</head>
+<body>
+<h1 align="center" class="root">
+<a name="6l3em4cndki4m33pvfmsegkmo9">目的：認知施策のROIを定量化する</a>
+</h1>
+<div align="center" class="globalOverview">
+<img src="xmind_files/images/%E7%9B%AE%E7%9A%84%EF%BC%9A%E8%AA%8D%E7%9F%A5%E6%96%BD%E7%AD%96%E3%81%AEROI%E3%82%92%E5%AE%9A%E9%87%8F%E5%8C%96%E3%81%99%E3%82%8B.jpg"></div>
+<h2 class="topic">
+<a name="4sc7jqu5t92r9q9ravjn7go2vi">①因子の列挙</a>
+</h2>
+<h3 class="topic">
+<a name="4eeonclqhtecfn58ov8anudplp">&nbsp;因子の重複度の見える化</a>
+</h3>
+<h3 class="topic">
+<a name="6hs5bo84msgdccf2itfh3a7nev">&nbsp;&nbsp;多重共線性の確認</a>
+</h3>
+<h3 class="topic">
+<a name="2e7p9baa0frtiilgg5r84fdh8v">&nbsp;&nbsp;&nbsp;媒体に聞く</a>
+</h3>
+<h3 class="topic">
+<a name="3jpr20v4s7ko0dshv41jms7c0t">&nbsp;&nbsp;&nbsp;OPT側で多重共線性の有無の仮説立て、及び数値確認</a>
+</h3>
+<h3 class="topic">
+<a name="1j10vmgfig87con3ots5035omo">&nbsp;&nbsp;&nbsp;&nbsp;仮説立て：媒体メニュー特性から推測</a>
+</h3>
+<h3 class="topic">
+<a name="2hbk3f12pbischsjn89qr4sj6j">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各メニューの配信因子を列挙</a>
+</h3>
+<h3 class="topic">
+<a name="6uof0o31ibe1ser7ttk70q90r4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各メニューの配信因子の重複から多重共線性の高そうの因子をグルーピング</a>
+</h3>
+<h3 class="topic">
+<a name="00ocr36nmp3fehrrf278j59ltl">&nbsp;&nbsp;&nbsp;&nbsp;数値確認</a>
+</h3>
+<h3 class="topic">
+<a name="7k0t27g400mcukec43cn6npeot">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;それぞれの因子間で散布図作成（相関分析）</a>
+</h3>
+<h3 class="topic">
+<a name="2lou0ump3een2lj0u35nbh6jm4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;多重共線性の高そうな2因子セットで散布図を作り視覚的に被りを確認する</a>
+</h3>
+<h3 class="topic">
+<a name="4tdqo7g7c42trrk5kpfjqnbau6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VIFの計算（Variance Inflation Factor）</a>
+</h3>
+<h3 class="topic">
+<a name="7cd6h20qsul7jr3tn4hnrkki94">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://www.youtube.com/watch?v=sAHTEHrvC7Q</a>
+</h3>
+<h3 class="topic">
+<a href="http://www.econ.kyoto-u.ac.jp/~hujii/myweb/Semi%20Statistic%20Analysis%2006.pdf" name="080bbdb91n8e6gegtsfuhotop5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.econ.kyoto-u.ac.jp/~hujii/myweb/Semi%20Statistic%20Analysis%2006.pdf</a>
+</h3>
+<h3 class="topic">
+<a name="55ir040cue2ecelf09dv4d5s1p">&nbsp;&nbsp;&nbsp;GAで重複率を調べる</a>
+</h3>
+<h2 class="topic">
+<a name="75n0e57k664r017jovm690sk34">②因子の関係性の見える化</a>
+</h2>
+<h3 class="topic">
+<a name="11tagfdsdt8qmimt50v4f8ucun">&nbsp;グラフィカルモデリングの作成</a>
+</h3>
+<h3 class="topic">
+<a name="790aelqvvs7si6l7si098dqsbf">&nbsp;&nbsp;各因子の条件付き独立性の確認</a>
+</h3>
+<h3 class="topic">
+<a name="7lcuibht3v7j1sg0cf89a5sli4">&nbsp;&nbsp;&nbsp;①偏相関行列を計算する</a>
+</h3>
+<h3 class="topic">
+<a name="17n3i30i97980j2u7pe3c18cgo">&nbsp;&nbsp;&nbsp;②偏相関が小さい所を条件付き独立と仮定</a>
+</h3>
+<h3 class="topic">
+<a name="29gpc5fj83h5m822ujrviap7g7">&nbsp;&nbsp;&nbsp;③独立グラフを描き、マルコフ性で確認</a>
+</h3>
+<h2 class="topic">
+<a name="2ecnmddhb4acbbl4s8u71ihmt0">③モデル（数式）を作成する</a>
+</h2>
+<h3 class="topic">
+<a name="0abmk92ogeol3s8q2459bhblon">&nbsp;①多重共線性の低い因子を絞り込み</a>
+</h3>
+<h3 class="topic">
+<a name="52v6pr30lqa0jbaa5kig7ipugc">&nbsp;②グラフィカルモデリングで隣合う因子のデータを収集</a>
+</h3>
+<h3 class="topic">
+<a name="65a6256lv07005o26r8krrug9p">&nbsp;③外れ値の検出・除外</a>
+</h3>
+<h3 class="topic">
+<a name="1m6npggj37slj8qv9arct4sedt">&nbsp;④連動性の高い因子間で回帰分析</a>
+</h3>
+<h3 class="topic">
+<a name="3lbnbqd11ectiac9sr1pulcv68">&nbsp;&nbsp;①P値と相関係数を適宜確認</a>
+</h3>
+<h3 class="topic">
+<a name="4ar3g9d4357lav6q4u0hsnb8gp">&nbsp;&nbsp;&nbsp;外れ値のしきい値を修正</a>
+</h3>
+<h3 class="topic">
+<a name="5jc5f0snbc0jsd1pnethlkbdql">&nbsp;&nbsp;&nbsp;因子の強さに応じて修正</a>
+</h3>
+<h3 class="topic">
+<a name="7ll4sc0fpofl39shvodhvcuigu">&nbsp;&nbsp;&nbsp;&nbsp;例：トレンド除去</a>
+</h3>
+<h3 class="topic">
+<a name="5aueop2t2s9m6n6n8uc94bp1lo">&nbsp;&nbsp;②目的変数までのnodeとなる因子の数式を列挙</a>
+</h3>
+<h3 class="topic">
+<a name="3pdublr333jfir8933evdlp2l1">&nbsp;&nbsp;③目的変数（売上・件数）とコストを変数にした数式を作成</a>
+</h3>
+</body>
+</html>
